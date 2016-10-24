@@ -13,6 +13,7 @@
     "dotenv": "^2.0.0",
     "hard-source-webpack-plugin": "0.0.38",
     "image-webpack-loader": "^3.0.0",
+    "markdown-it": "^8.0.1",
     "reshape-standard": "^0.4.0",
     "spike": "~0.12.1",
     "spike-contentful": "^0.4.0",
