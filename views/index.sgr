@@ -1,0 +1,9 @@
+extends(src='views/layout.sgr')
+
+  block(name='content')
+    h2 Carroll &amp; Co.
+    ul
+      each(loop='page of contentful.pages')
+        h3 {{page.title}}
+        if(condition=page.bannerImage)
+          img(src={{page.bannerImage.fields.file.url}})
