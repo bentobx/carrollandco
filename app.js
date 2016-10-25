@@ -12,10 +12,10 @@ const locals = {}
 module.exports = {
   devtool: 'source-map',
   matchers: {
-    html: '*(**/)*.sgr',
+    html: '*(**/)*.sml',
     css: '*(**/)*.sss'
   },
-  ignore: ['**/layout.sgr', '**/_*', '**/.*', '_cache/**', 'readme.md'],
+  ignore: ['**/layout.sml','**/_*', '**/.*', '_cache/**', 'readme.md'],
   reshape: (ctx) => {
     return htmlStandards({
       locals
@@ -40,14 +40,18 @@ module.exports = {
           name: 'posts',
           id: 'post',
           template: {
-            path: 'views/index.sgr',
-            output: (post) => { return `posts/${post.id}.html` }
+            path: 'views/index.sml',
+            output: (post) => { return `posts/${post.slug}.html` }
           }
         },
         {
           name: 'pages',
-          id: 'page'
+          id: 'page',
+          template: {
+            path: 'views/templates/_page.sml',
+            output: (i) => { return `${i.slug}.html` }
         }
+      }
       ]
     })
   ]

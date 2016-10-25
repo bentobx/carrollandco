@@ -7,6 +7,7 @@ html
       meta(name='description' content='')
       meta(name='author' content='jennie')
       meta(name="viewport" content="width=device-width, initial-scale=1")
+      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
 
     block(name='title')
       title Title of Your Site
@@ -15,7 +16,10 @@ html
       link(rel='stylesheet' href='css/index.css')
 
   body(role='document')
-    main(role='main' id='{{ pageId }}')
+    main(role='main')
+
+      block(name='nav')
+
       block(name='content')
 
     block(name='javascript')
