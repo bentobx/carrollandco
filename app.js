@@ -1,12 +1,13 @@
 require('dotenv').config();
-const path = require('path')
+const path             = require('path')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
-const htmlStandards = require('reshape-standard')
-const cssStandards = require('spike-css-standards')
-const jsStandards = require('babel-preset-latest')
-const pageId = require('spike-page-id')
-const Contentful = require('spike-contentful')
-const locals = {}
+const htmlStandards    = require('reshape-standard')
+const cssStandards     = require('spike-css-standards')
+const jsStandards      = require('babel-preset-latest')
+const pageId           = require('spike-page-id')
+const md               = require('markdown-it')()
+const Contentful       = require('spike-contentful')
+const locals           = {}
 
 
 module.exports = {
@@ -39,8 +40,14 @@ module.exports = {
         {
           name: 'posts',
           id: 'post',
+          transform: (post) => {
+            post = post.fields
+            post.body = md.render(post.body)
+            console.log(post)
+            return post
+          },
           template: {
-            path: 'views/index.sml',
+            path: 'views/templates/_post.sml',
             output: (post) => { return `posts/${post.slug}.html` }
           }
         },

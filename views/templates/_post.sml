@@ -17,5 +17,7 @@ extends(src='views/layout.sml')
           a(class='btn btn-primary btn-lg' href='#' role='button') Learn more &raquo;
 
     div(class='container')
+
       h2 {{item.title}}
-      div {{JSON.stringify(item)}}
+      p {{Date.prototype.getDay(item.publishDate)}}
+      div {{{item.body}}}
