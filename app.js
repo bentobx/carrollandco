@@ -8,7 +8,10 @@ const pageId           = require('spike-page-id')
 const md               = require('markdown-it')()
 const Contentful       = require('spike-contentful')
 const locals           = {}
-
+const mixins           = require('postcss-mixins')
+const vars             = require('postcss-simple-vars')
+const nestedProps      = require('postcss-nested-props')
+const nested           = require('postcss-nested')
 
 module.exports = {
   devtool: 'source-map',
@@ -23,7 +26,12 @@ module.exports = {
     })
   },
   postcss: (ctx) => {
-    return cssStandards({ webpack: ctx })
+    let css = cssStandards({ webpack: ctx })
+    let otherPlugins = [mixins, vars, nestedProps, nested]
+    otherPlugins.forEach(plugin =>
+      css.plugins.push(plugin())
+    )
+    return css
   },
   babel: { presets: [jsStandards] },
   plugins: [
@@ -43,7 +51,7 @@ module.exports = {
           transform: (post) => {
             post = post.fields
             post.body = md.render(post.body)
-            console.log(post)
+            // console.log(post)
             return post
           },
           template: {

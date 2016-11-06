@@ -1,1 +1,1 @@
-cmd: spike watch
+cmd: spike compile

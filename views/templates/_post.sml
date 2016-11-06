@@ -9,7 +9,6 @@ extends(src='views/layout.sml')
           a(class='nav-link' href='#') Home
             span(class='sr-only') (current)
 
-
   block(name='content')
     div(class='jumbotron' style="{{item.bannerImage ? item.bannerImage.fields.file.url : ''}}")
       div(class='container')
@@ -19,5 +18,5 @@ extends(src='views/layout.sml')
     div(class='container')
 
       h2 {{item.title}}
-      p {{Date.prototype.getDay(item.publishDate)}}
+      p {{item.publishDate}}
       div {{{item.body}}}
