@@ -10,17 +10,19 @@ html
       link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
 
     block(name='title')
-      title Carroll and Co.
+      title Carroll and Co.: {{item.title}}
 
     block(name='stylesheets')
       link(rel='stylesheet' href='css/index.css')
 
-  body(role='document')
+  body(role='document' class='{{item.classes}}')
     main(role='main')
 
       block(name='nav')
 
       block(name='content')
+
+      block(name='footer')
 
     block(name='javascript')
       script(src='js/main.js' defer)

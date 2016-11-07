@@ -12,6 +12,9 @@ const mixins           = require('postcss-mixins')
 const vars             = require('postcss-simple-vars')
 const nestedProps      = require('postcss-nested-props')
 const nested           = require('postcss-nested')
+const Records          = require('spike-records')
+
+
 
 module.exports = {
   devtool: 'source-map',
@@ -19,7 +22,7 @@ module.exports = {
     html: '*(**/)*.sml',
     css: '*(**/)*.sss'
   },
-  ignore: ['**/layout.sml','**/_*', '**/.*', '_cache/**', 'readme.md'],
+  ignore: ['**/index.sml','**/layout.sml','**/_*', '**/.*', '_cache/**', 'readme.md'],
   reshape: (ctx) => {
     return htmlStandards({
       locals
@@ -35,6 +38,10 @@ module.exports = {
   },
   babel: { presets: [jsStandards] },
   plugins: [
+    new Records({
+      addDataTo: locals,
+      paths: { file: 'data/paths.json' }
+    }),
     new HardSourcePlugin({
       environmentPaths: { root: __dirname },
       recordsPath: path.join(__dirname, '_cache/records.json'),
@@ -64,7 +71,12 @@ module.exports = {
           id: 'page',
           template: {
             path: 'views/templates/_page.sml',
-            output: (i) => { return `${i.slug}.html` }
+            output: (i) => {
+              if (i.slug == 'home')
+                return "index.html"
+              else
+                return `${i.slug}.html`
+              }
         }
       }
       ]

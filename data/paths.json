@@ -1,0 +1,20 @@
+{
+  "navbar": {
+    "Home": {
+      "url": "/",
+      "title": "Home"
+    },
+    "about": {
+      "url": "/about",
+      "title": "About"
+    },
+    "products": {
+      "url": "/products",
+      "title": "Products"
+    },
+    "services": {
+      "url": "/services",
+      "title": "Services"
+    }
+  }
+}

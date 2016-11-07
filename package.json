@@ -23,6 +23,7 @@
     "spike-contentful": "^0.4.0",
     "spike-css-standards": "^0.1.1",
     "spike-page-id": "^0.1.0",
+    "spike-records": "^0.3.1",
     "webpack": "^1.13.1"
   },
   "devDependencies": {
