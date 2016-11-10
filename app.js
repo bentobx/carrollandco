@@ -2,7 +2,7 @@ require('dotenv').config();
 const Contentful       = require('spike-contentful')
 const cssStandards     = require('spike-css-standards')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
-// const htmlStandards    = require('reshape-standard')
+const htmlStandards    = require('reshape-standard')
 const jsStandards      = require('babel-preset-latest')
 const locals           = {}
 const md               = require('markdown-it')()
@@ -21,12 +21,12 @@ module.exports = {
     css: '*(**/)*.sss'
   },
   ignore: ['**/_*', '**/.*', '_cache/**', 'readme.md'],
-  // reshape: (ctx) => {
-  //   return htmlStandards({
-  //     webpack: ctx,
-  //     locals: { pageId: pageId(ctx), foo: 'bar', locals }
-  //   })
-  // },
+  reshape: (ctx) => {
+    return htmlStandards({
+      webpack: ctx,
+      locals: locals
+    })
+  },
   jade: {
     pretty: true,
     locals: locals
@@ -66,6 +66,10 @@ module.exports = {
           filters: {
             order: 'fields.sku'
           },
+          template: {
+            path: 'views/templates/_product.jade',
+            output: (i) => { return `/products/${i.slug}.html` }
+          },
           transform: (product) => {
             product = product.fields
             if (product.description)
@@ -73,6 +77,22 @@ module.exports = {
             if (product.suggestedUses)
               product.suggestedUses = md.render(product.suggestedUses)
             return product
+          }
+        },
+        {
+          name: 'recipes',
+          id: 'recipe',
+          template: {
+            path: 'views/templates/_recipe.sml',
+            output: (i) => { return `/recipes/${i.slug}.html` }
+          }
+        },
+        {
+          name: 'pages',
+          id: 'page',
+          template: {
+            path: 'views/templates/_page.jade',
+            output: (i) => { return `${i.slug}.html` }
           }
         }
       ]

@@ -6,24 +6,30 @@ block nav
 block content
 
   div.container
-    h2 Carroll &amp; Co.
 
-  for product in contentful.products
-    h3
-      a(href='product.slug')= product.name
+    for product in contentful.products
+      .card
+        if product.bannerImage
+          img.card-img-top(src=product.bannerImage.fields.file.url, width=product.bannerImage.fields.file.details.image.width, height=product.bannerImage.fields.file.details.image.height)
 
-      if (product.number != undefined)
-        p= product.number
+        .card-block
+          h4.card-title
+            a(href='/products/#{product.slug}')= product.name
+          if (product.number != undefined)
+            h5.number N<sup>o.</sup> #{product.number}
+          p.volume #{product.volume} ml
+          p.abv #{product.abv}% Alc./Vol.
 
-    p.volume #{product.volume} ml
-    p.abv #{product.abv}% Alc./Vol.
+          p.card-text!= product.description
 
-    != product.description
+          h4 Suggested Uses
 
-    h4 Suggested Uses
+          != product.suggestedUses
 
-    != product.suggestedUses
+          if product.recipes
+            h4 Recipes
 
-    if product.bannerImage
-      img(src=product.bannerImage.fields.file.url width=product.bannerImage.fields.file.details.image.width height=product.bannerImage.fields.file.details.image.height)
-    hr
+            for recipe in product.recipes
+              != JSON.stringify(recipe)
+
+              p: a(href='/recipes/#{recipe.fields.slug}')= recipe.fields.title
