@@ -1,0 +1,29 @@
+extends _layout
+
+block nav
+  include includes/_main-nav.jade
+
+block content
+
+  div.container
+    h2 Carroll &amp; Co.
+
+  for product in contentful.products
+    h3
+      a(href='product.slug')= product.name
+
+      if (product.number != undefined)
+        p= product.number
+
+    p.volume #{product.volume} ml
+    p.abv #{product.abv}% Alc./Vol.
+
+    != product.description
+
+    h4 Suggested Uses
+
+    != product.suggestedUses
+
+    if product.bannerImage
+      img(src=product.bannerImage.fields.file.url width=product.bannerImage.fields.file.details.image.width height=product.bannerImage.fields.file.details.image.height)
+    hr

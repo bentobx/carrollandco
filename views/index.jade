@@ -1,0 +1,29 @@
+extends _layout
+
+block nav
+  include includes/_main-nav.jade
+
+block content
+
+  div.jumbotron
+    div.container
+
+      :marked
+        Lorem ipsum dolor sit amet
+
+      a.btn.btn-outline-primary.btn-lg(href='#', role='button') Learn more &raquo;
+
+  div.container
+
+    //- for page in contentful.pages
+    //-   h3
+    //-     a(href=page.slug) page.title
+    //-   if(condition=page.bannerImage)
+    //-     img(src=page.bannerImage.fields.file.url width=page.bannerImage.fields.file.details.image.width height=page.bannerImage.fields.file.details.image.height)
+
+    h2 Posts
+
+    //- for post in contentful.posts
+    //-   p: strong: a(href='/posts/{post.slug}') post.title
+    //-   :marked
+    //-     post.body
