@@ -14,9 +14,22 @@ extends(src='views/_layout.sml')
 
     div.container
 
-      h2 Posts
+      h2 Recipes
 
-      //- for post in contentful.posts
-      //-   p: strong: a(href='/posts/{post.slug}') post.title
-      //-   :marked
-      //-     post.body
+      each(loop='recipe, i of contentful.recipes')
+        .card
+          if(condition='recipe.bannerImage')
+            img.card-img-top(src=recipe.bannerImage.fields.file.url width=recipe.bannerImage.fields.file.details.image.width height=recipe.bannerImage.fields.file.details.image.height)
+          .card-block
+            h4.card-title
+              a(href='/recipes/{{recipe.slug}}') {{recipe.title}}
+
+            p: strong Ingredients
+
+            ul.list-unstyled
+              each(loop='ingredient in recipe.ingredients')
+                li {{ ingredient}}
+
+            p: strong Directions
+
+            div {{{ recipe.directions }}}

@@ -12,8 +12,8 @@ extends(src='views/_layout.sml')
         h3 Ingredients
 
         ul.list-unstyled
-        each(loop='ingredient in item.ingredients')
-          li {{ ingredient}}
+          each(loop='ingredient in item.ingredients')
+            li {{ ingredient}}
 
         h3 Directions
 
