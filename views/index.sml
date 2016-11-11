@@ -8,8 +8,7 @@ extends(src='views/_layout.sml')
     div.jumbotron
       div.container
 
-        :marked
-          Lorem ipsum dolor sit amet
+        div(md) Lorem ipsum dolor sit amet
 
         a.btn.btn-outline-primary.btn-lg(href='#', role='button') Learn more &raquo;
 

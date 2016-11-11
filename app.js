@@ -7,8 +7,7 @@ const Records          = require('spike-records')
 
 const cssStandards     = require('spike-css-standards')
 const htmlStandards    = require('reshape-standard')
-// const htmlStandards    = require('spike-html-standards')
-const pageId           = require('spike-page-id')
+// const pageId           = require('spike-page-id')
 
 const jsStandards      = require('babel-preset-latest')
 
@@ -23,29 +22,6 @@ const vars             = require('postcss-simple-vars')
 const locals           = {}
 
 module.exports = {
-  devtool: 'source-map',
-  matchers: {
-    html: '*(**/)*.sml',
-    css: '*(**/)*.sss'
-  },
-  ignore: ['**/_*', '**/.*', '_cache/**', 'readme.md', 'prepros.cfg'],
-  reshape: (ctx) => {
-    return htmlStandards({
-      locals
-      // https://github.com/static-dev/spike-records/issues/39
-      // webpack: ctx,
-      // locals: { pageId: pageId(ctx), locals }
-    })
-  },
-  postcss: (ctx) => {
-    let css = cssStandards({ webpack: ctx })
-    let otherPlugins = [mixins, vars, nestedProps, nested]
-    otherPlugins.forEach(plugin =>
-      css.plugins.push(plugin())
-    )
-    return css
-  },
-  babel: { presets: [jsStandards] },
   plugins: [
     new Records({
       addDataTo: locals,
@@ -87,16 +63,31 @@ module.exports = {
             path: 'views/templates/_recipe.sml',
             output: (i) => { return `/recipes/${i.slug}.html` }
           }
-        },
-        {
-          name: 'pages',
-          id: 'page',
-          template: {
-            path: 'views/templates/_page.sml',
-            output: (i) => { return `${i.slug}.html` }
-          }
         }
       ]
     })
-  ]
+  ],
+  devtool: 'source-map',
+  matchers: {
+    html: '*(**/)*.sml',
+    css: '*(**/)*.sss'
+  },
+  ignore: ['**/_*', '**/.*', '_cache/**', 'readme.md', 'prepros.cfg'],
+  reshape: (ctx) => {
+    return htmlStandards({
+      locals
+      // webpack: ctx,
+      // locals: { pageId: pageId(ctx), locals }
+    })
+  },
+  postcss: (ctx) => {
+    let css = cssStandards({ webpack: ctx })
+    let otherPlugins = [mixins, vars, nestedProps, nested]
+    otherPlugins.forEach(plugin =>
+      css.plugins.push(plugin())
+    )
+    return css
+  },
+  babel: { presets: [jsStandards] }
+
 }

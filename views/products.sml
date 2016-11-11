@@ -3,10 +3,11 @@ extends(src='views/_layout.sml')
   block(name='nav')
     include(src='views/includes/_main-nav.sml')
 
+
   block(name='content')
 
     div.container
-      each(loop='product of contentful.products')
+      each(loop='product, i of contentful.products')
         .card
           if(condition='product.bannerImage')
             img.card-img-top(src=product.bannerImage.fields.file.url width=product.bannerImage.fields.file.details.image.width height=product.bannerImage.fields.file.details.image.height)
@@ -26,6 +27,6 @@ extends(src='views/_layout.sml')
 
             if(condition='product.recipes')
               h4 Recipes
-              each(loop='recipe of product.recipes')
+              each(loop='recipe, i of product.recipes')
                 p
                   a(href='/recipes/{{recipe.fields.slug}}') {{recipe.fields.title}}
