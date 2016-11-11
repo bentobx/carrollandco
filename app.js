@@ -5,6 +5,7 @@ const Contentful       = require('spike-contentful')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
 const Records          = require('spike-records')
 
+
 const cssStandards     = require('spike-css-standards')
 const htmlStandards    = require('reshape-standard')
 // const pageId           = require('spike-page-id')
@@ -22,6 +23,28 @@ const vars             = require('postcss-simple-vars')
 const locals           = {}
 
 module.exports = {
+  // devtool: 'source-map',
+  matchers: {
+    html: '*(**/)*.sml',
+    css: '*(**/)*.sss'
+  },
+  ignore: ['**/_*', '**/.*', '_cache/**', '*.md', 'prepros.cfg', '*.log'],
+  reshape: (ctx) => {
+    return htmlStandards({
+      locals
+      // webpack: ctx,
+      // locals: { pageId: pageId(ctx), locals }
+    })
+  },
+  postcss: (ctx) => {
+    let css = cssStandards({ webpack: ctx })
+    let otherPlugins = [mixins, vars, nestedProps, nested]
+    otherPlugins.forEach(plugin =>
+      css.plugins.push(plugin())
+    )
+    return css
+  },
+  babel: { presets: [jsStandards] },
   plugins: [
     new Records({
       addDataTo: locals,
@@ -66,28 +89,5 @@ module.exports = {
         }
       ]
     })
-  ],
-  devtool: 'source-map',
-  matchers: {
-    html: '*(**/)*.sml',
-    css: '*(**/)*.sss'
-  },
-  ignore: ['**/_*', '**/.*', '_cache/**', 'readme.md', 'prepros.cfg'],
-  reshape: (ctx) => {
-    return htmlStandards({
-      locals
-      // webpack: ctx,
-      // locals: { pageId: pageId(ctx), locals }
-    })
-  },
-  postcss: (ctx) => {
-    let css = cssStandards({ webpack: ctx })
-    let otherPlugins = [mixins, vars, nestedProps, nested]
-    otherPlugins.forEach(plugin =>
-      css.plugins.push(plugin())
-    )
-    return css
-  },
-  babel: { presets: [jsStandards] }
-
+  ]
 }
