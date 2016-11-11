@@ -3,3 +3,4 @@ node_modules
 public
 /.env
 /_cache
+/prepros.cfg

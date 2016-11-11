@@ -1,35 +1,41 @@
 require('dotenv').config();
+const path             = require('path')
+
 const Contentful       = require('spike-contentful')
-const cssStandards     = require('spike-css-standards')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
+const Records          = require('spike-records')
+
+const cssStandards     = require('spike-css-standards')
 const htmlStandards    = require('reshape-standard')
+// const htmlStandards    = require('spike-html-standards')
+const pageId           = require('spike-page-id')
+
 const jsStandards      = require('babel-preset-latest')
-const locals           = {}
+
 const md               = require('markdown-it')()
+
 const mixins           = require('postcss-mixins')
 const nested           = require('postcss-nested')
 const nestedProps      = require('postcss-nested-props')
-const pageId           = require('spike-page-id')
-const path             = require('path')
-const Records          = require('spike-records')
 const vars             = require('postcss-simple-vars')
+
+
+const locals           = {}
 
 module.exports = {
   devtool: 'source-map',
   matchers: {
-    // html: '*(**/)*.jade',
+    html: '*(**/)*.sml',
     css: '*(**/)*.sss'
   },
-  ignore: ['**/_*', '**/.*', '_cache/**', 'readme.md'],
+  ignore: ['**/_*', '**/.*', '_cache/**', 'readme.md', 'prepros.cfg'],
   reshape: (ctx) => {
     return htmlStandards({
-      webpack: ctx,
-      locals: locals
+      locals
+      // https://github.com/static-dev/spike-records/issues/39
+      // webpack: ctx,
+      // locals: { pageId: pageId(ctx), locals }
     })
-  },
-  jade: {
-    pretty: true,
-    locals: locals
   },
   postcss: (ctx) => {
     let css = cssStandards({ webpack: ctx })
@@ -40,11 +46,6 @@ module.exports = {
     return css
   },
   babel: { presets: [jsStandards] },
-  module: {
-    loaders: [
-      { test: /\.jade$/, loader: 'source!jade-static-loader', extension: 'html' }
-    ]
-  },
   plugins: [
     new Records({
       addDataTo: locals,
@@ -67,7 +68,7 @@ module.exports = {
             order: 'fields.sku'
           },
           template: {
-            path: 'views/templates/_product.jade',
+            path: 'views/templates/_product.sml',
             output: (i) => { return `/products/${i.slug}.html` }
           },
           transform: (product) => {
@@ -91,7 +92,7 @@ module.exports = {
           name: 'pages',
           id: 'page',
           template: {
-            path: 'views/templates/_page.jade',
+            path: 'views/templates/_page.sml',
             output: (i) => { return `${i.slug}.html` }
           }
         }
