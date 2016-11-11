@@ -85,6 +85,12 @@ module.exports = {
           template: {
             path: 'views/templates/_recipe.sml',
             output: (i) => { return `/recipes/${i.slug}.html` }
+          },
+          transform: (recipe) => {
+            recipe = recipe.fields
+            if (recipe.directions)
+              recipe.directions   = md.render(recipe.directions)
+            return recipe
           }
         }
       ]
