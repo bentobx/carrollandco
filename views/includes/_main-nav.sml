@@ -1,4 +1,3 @@
-
 nav.navbar.navbar-static-top
   a.logo.navbar-brand(href='#')
     //- object(type='image/svg+xml', data='/img/logo-svg.svg')

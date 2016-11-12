@@ -8,14 +8,14 @@ html
       link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
       script(src='https://use.typekit.net/gyt3xeu.js')
       script try{Typekit.load({ async: true });}catch(e){}
-      
+
       block(name='title')
-        title Hello :)
+        title {{item.title}}
 
     block(name='stylesheets')
       link(rel='stylesheet' href='/css/index.css')
 
-  body
+  body(id={{item.slug}} class="{{ item.classes ? item.classes.join(' ') : '' }}")
 
     main(role='main')
 
@@ -23,4 +23,7 @@ html
 
       block(name='content')
 
+      block(name='sections')
+
       block(name='footer')
+        p &copy; 2016 Carroll &amp; Co.

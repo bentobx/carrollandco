@@ -1,24 +1,37 @@
-doctype html
-html
-  head
-    block(name='meta')
-      meta(charset='utf-8')
-      meta(http-equiv='X-UA-Compatible' content='IE=edge, chrome=1')
-      meta(name="viewport" content="width=device-width, initial-scale=1")
-      link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
+extends(src='views/_layout.sml')
 
-      block(name='title')
-      title {{pageId}}
+    block(name='nav')
+      include(src='views/includes/_main-nav.sml')
 
-    block(name='stylesheets')
-      link(rel='stylesheet' href='css/index.css')
 
-  body#home
 
-    main(role='main')
+    block(name='sections')
 
-      block(name='nav')
+      if(condition='item.sections')
+        each(loop='section in item.sections')
+          if(condition='section.fields.type == "jumbotron"')
+            div.jumbotron.feature(style='background-image: url({{section.fields.image.fields.file.url}})')
+              div.container
+                p {{section.fields.body}}
+                a.btn.btn-outline-primary.btn-lg(href='{{section.fields.promotedUrl}}', role='button') Learn more &raquo;
 
-      block(name='content')
+          if(condition='section.fields.type == "spike-template"')
+          // to use a sugarml template from the application (if you need to use a spike-contentful object)
+          // attach section of type spike-template to the page
+          // create include file/template, as below
+          // check the page's slug
+          // - This structure is used so you can rearrange the order of sections in contentful
+            if(condition='item.slug == "recipes"')
+              include(src='views/includes/_recipes.sml')
+            if(condition='item.slug == "products"')
+              include(src='views/includes/_products.sml')
 
-      block(name='footer')
+
+          else
+            section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
+              div.container
+                p {{section.fields.body}}
+
+
+    block(name='footer')
+      p &copy; 2016 Carroll &amp; Co.

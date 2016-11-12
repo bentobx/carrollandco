@@ -23,6 +23,7 @@ const vars             = require('postcss-simple-vars')
 const locals           = {}
 
 module.exports = {
+  cleanUrls: true,
   // devtool: 'source-map',
   matchers: {
     html: '*(**/)*.sml',
@@ -77,6 +78,20 @@ module.exports = {
             if (product.suggestedUses)
               product.suggestedUses = md.render(product.suggestedUses)
             return product
+          }
+        },
+        {
+          name: 'pages',
+          id: 'page',
+          // filters: { 'fields.slug[nin]': 'home' },
+          template: {
+            path: 'views/templates/_page.sml',
+            output: (i) => {
+              if (i.slug == 'home')
+                return `index.html`
+              else
+                return `/${i.slug}/index.html`
+            }
           }
         },
         {
