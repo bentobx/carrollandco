@@ -12,9 +12,13 @@
       "url": "/products",
       "title": "Products"
     },
+    "recipes": {
+      "url": "/recipes",
+      "title": "Recipes"
+    },
     "services": {
-      "url": "/services",
-      "title": "Services"
+      "url": "/product-development",
+      "title": "Product Development"
     }
   }
 }
