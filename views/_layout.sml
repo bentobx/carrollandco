@@ -6,7 +6,9 @@ html
       meta(http-equiv='X-UA-Compatible' content='IE=edge, chrome=1')
       meta(name="viewport" content="width=device-width, initial-scale=1")
       link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
-
+      script(src='https://use.typekit.net/gyt3xeu.js')
+      script try{Typekit.load({ async: true });}catch(e){}
+      
       block(name='title')
         title Hello :)
 

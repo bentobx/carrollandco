@@ -12,7 +12,7 @@ extends(src='views/_layout.sml')
           if(condition='product.bannerImage')
             img.card-img-top(src=product.bannerImage.fields.file.url width=product.bannerImage.fields.file.details.image.width height=product.bannerImage.fields.file.details.image.height)
           .card-block
-            h4.card-title
+            h3.card-title
               a(href='/products/{{product.slug}}') {{product.name}}
             if(condition='product.number != undefined')
               h5.number N<sup>o.</sup> {{product.number}}

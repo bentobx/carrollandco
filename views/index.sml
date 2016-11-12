@@ -8,11 +8,14 @@ extends(src='views/_layout.sml')
     div.jumbotron
       div.container
 
+
         div(md) Lorem ipsum dolor sit amet
 
         a.btn.btn-outline-primary.btn-lg(href='#', role='button') Learn more &raquo;
 
     div.container
+
+      img.lineup(src='/img/bitters-lineup.jpg')
 
       h2 Recipes
 

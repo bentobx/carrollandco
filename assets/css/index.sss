@@ -1,11 +1,32 @@
 @import '_global.sss'
 
 $primary: #2D232E
+$sans-font-family: futura-pt-condensed, sans-serif
 
 body
-  background-color: #dbd0c3
+  background-color: rgb(242,	243, 245)
+  font-family: "mrs-eaves",sans-serif;
 
-  &#home
+
+.wf-loading h1, .wf-loading p
+  visibility: hidden;
+
+h1,h2,h3
+  font-family: $sans-font-family
+  font-style: normal
+  font-weight: 500
+  text-transform: uppercase
+  letter-spacing: .2rem
+  background-color: #000
+  color: #fff
+  display: inline-block
+  padding: .2rem .4rem
+  a
+    color: inherit
+
+h4
+  font-weight: 900
+  letter-spacing: 0
 
 .number
   font-variant: small-caps
@@ -19,16 +40,28 @@ a
   background-color: darken($primary,40%)
   border-radius: 0
   .navbar-brand
-    /*height: 4vh*/
+    display: block;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
     width: 12vw
-    float: left
-    display: block
 
   .navbar-nav
     line-height: 4vh
+    border-top: solid 6px #000
+    text-align: center
+    width: 50vw
+    display: block
+    margin: 1rem auto
+
     .nav-item
       display: inline-block
       float: none
+      font-family: $sans-font-family
+      font-size: 2vw
+      letter-spacing: .1rem
+      text-transform: uppercase
+
       .nav-link
         display: inline-block
         padding: 5px 10px
