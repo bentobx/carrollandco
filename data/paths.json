@@ -1,6 +1,6 @@
 {
   "navbar": {
-    "Home": {
+    "home": {
       "url": "/",
       "title": "Home"
     },
@@ -16,7 +16,7 @@
       "url": "/recipes",
       "title": "Recipes"
     },
-    "services": {
+    "product-development": {
       "url": "/product-development",
       "title": "Product Development"
     }

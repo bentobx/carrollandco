@@ -1,18 +1,21 @@
 .container
-  h1 Products
   each(loop='product, i of contentful.products')
-    .card
-      if(condition='product.bannerImage')
-        img.card-img-top(src=product.bannerImage.fields.file.url width=product.bannerImage.fields.file.details.image.width height=product.bannerImage.fields.file.details.image.height)
-      .card-block
-        h3.card-title
+    section.product.row(id={{product.slug}})
+
+      .title.col-md-12
+        h3
           a(href='/products/{{product.slug}}') {{product.name}}
         if(condition='product.number != undefined')
-          h5.number N<sup>o.</sup> {{product.number}}
+          h4.number N<sup>o.</sup> {{product.number}}
+      .product-image.col-md-6
+        if(condition='product.image')
+          img(src="{{product.image[0].fields.file.url + '?h=600'}}")
+
+      .content.col-md-6
         p.volume {{product.volume}} ml
         p.abv {{product.abv}}% Alc./Vol.
 
-        div.card-text {{{product.description}}}
+        div.description {{{product.description}}}
 
         if(condition='product.suggestedUses')
           h4 Suggested Uses

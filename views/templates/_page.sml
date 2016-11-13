@@ -17,10 +17,10 @@ extends(src='views/_layout.sml')
 
           if(condition='section.fields.type == "spike-template"')
           // to use a sugarml template from the application (if you need to use a spike-contentful object)
-          // attach section of type spike-template to the page
-          // create include file/template, as below
-          // check the page's slug
-          // - This structure is used so you can rearrange the order of sections in contentful
+          // 1. attach section of type spike-template to the page
+          // 2. create include file/template, as below
+          // 3. check the page's slug
+          // Note: This structure is used so you can rearrange the order of sections in contentful
             if(condition='item.slug == "recipes"')
               include(src='views/includes/_recipes.sml')
             if(condition='item.slug == "products"')
@@ -31,7 +31,10 @@ extends(src='views/_layout.sml')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
                 p {{section.fields.body}}
+                p {{section.fields.links}}
 
 
     block(name='footer')
       p &copy; 2016 Carroll &amp; Co.
+
+      

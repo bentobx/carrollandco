@@ -6,10 +6,25 @@ $sans-font-family: futura-pt-condensed, sans-serif
 body
   background-color: rgb(242,	243, 245)
   font-family: "mrs-eaves",sans-serif;
+  &#products
+    section
+      &.product
+        margin: 0 auto 3rem auto
+        float: none
+        display: block
+        width: 50vw
+        img
+          display: block
+          margin: 0 auto
+        &:nth-child(even)
+          .product-image
+            float: right
+          .content
+            float: left
 
 .jumbotron
   background-size: cover
-  
+
 .wf-loading h1, .wf-loading p
   visibility: hidden;
 
@@ -29,6 +44,9 @@ h1,h2,h3
 h4
   font-weight: 900
   letter-spacing: 0
+
+
+
 
 .number
   font-variant: small-caps
@@ -59,7 +77,7 @@ a
       display: inline-block
       float: none
       font-family: $sans-font-family
-      font-size: 2vw
+      font-size: calc(12px + 1vw)
       letter-spacing: .1rem
       text-transform: uppercase
 
@@ -71,6 +89,9 @@ a
         &:hover
           background-color: rgba(255,255,255,.2)
           text-decoration: none
+        &.current
+          background: #000
+          color: #fff
 
 
 footer

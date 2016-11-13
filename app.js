@@ -1,25 +1,17 @@
 require('dotenv').config();
 const path             = require('path')
-
 const Contentful       = require('spike-contentful')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
 const Records          = require('spike-records')
-
-
 const cssStandards     = require('spike-css-standards')
 const htmlStandards    = require('reshape-standard')
 // const pageId           = require('spike-page-id')
-
 const jsStandards      = require('babel-preset-latest')
-
 const md               = require('markdown-it')()
-
 const mixins           = require('postcss-mixins')
 const nested           = require('postcss-nested')
 const nestedProps      = require('postcss-nested-props')
 const vars             = require('postcss-simple-vars')
-
-
 const locals           = {}
 
 module.exports = {
@@ -29,7 +21,7 @@ module.exports = {
     html: '*(**/)*.sml',
     css: '*(**/)*.sss'
   },
-  ignore: ['**/_*', '**/.*', '_cache/**', '*.md', 'prepros.cfg', '*.log'],
+  ignore: ['**/.*', '_cache/**', '*.md', 'prepros.cfg', '*.log'],
   reshape: (ctx) => {
     return htmlStandards({
       locals
