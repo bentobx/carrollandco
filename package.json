@@ -16,6 +16,7 @@
     "jstransformer-marked": "^1.0.1",
     "markdown-it": "^8.0.1",
     "marked": "^0.3.6",
+    "postcss-color-function": "^2.0.1",
     "postcss-mixins": "^5.4.0",
     "postcss-nested": "^1.0.0",
     "postcss-nested-props": "^1.1.1",

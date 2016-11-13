@@ -1,7 +1,6 @@
-.container
-  each(loop='product, i of contentful.products')
-    section.product.row(id={{product.slug}})
-
+each(loop='product, i of contentful.products')
+  section.product.row(id={{product.slug}})
+    .container
       .title.col-md-12
         h3
           a(href='/products/{{product.slug}}') {{product.name}}

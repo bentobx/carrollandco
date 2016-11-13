@@ -12,6 +12,8 @@ const mixins           = require('postcss-mixins')
 const nested           = require('postcss-nested')
 const nestedProps      = require('postcss-nested-props')
 const vars             = require('postcss-simple-vars')
+const colorFunction    = require('postcss-color-function')
+
 const locals           = {}
 
 module.exports = {
@@ -31,7 +33,7 @@ module.exports = {
   },
   postcss: (ctx) => {
     let css = cssStandards({ webpack: ctx })
-    let otherPlugins = [mixins, vars, nestedProps, nested]
+    let otherPlugins = [mixins, vars, nestedProps, nested, colorFunction]
     otherPlugins.forEach(plugin =>
       css.plugins.push(plugin())
     )

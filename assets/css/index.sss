@@ -3,16 +3,51 @@
 $primary: #2D232E
 $sans-font-family: futura-pt-condensed, sans-serif
 
+$cherry-vanilla: RGB(226, 189, 196)
+$lemon-ginger: RGB(216, 180, 87)
+$orange-cranberry: RGB(222, 142, 95)
+$cherry-masala-chai: RGB(207, 154, 143)
+$blueberry: RGB(169, 184, 192)
+$aromatic: RGB(141, 133, 65)
+$root-beer: RGB(163, 140, 128)
+
 body
   background-color: rgb(242,	243, 245)
   font-family: "mrs-eaves",sans-serif;
   &#products
     section
       &.product
-        margin: 0 auto 3rem auto
+        margin: 0 auto
+        padding: 2rem
         float: none
         display: block
-        width: 50vw
+        &#cherry-vanilla-bitters
+          background-color: color(#E2BDC4 lightness(95%))
+
+        &#lemon-ginger-bitters
+          background-color: $lemon-ginger
+
+        &#orange-cranberry-bitters
+          background-color: $orange-cranberry
+
+        &#cherry-masala-chai-bitters
+          background-color: $cherry-masala-chai
+
+        &#blueberry-bitters
+          background-color: $blueberry
+
+        &#aromatic-bitters
+          background-color: $aromatic
+
+        &#root-beer-bitters
+          background-color: $root-beer
+
+        &#tonic-syrup
+          background-color: #fff
+
+        &#bloody-mix
+          background-color: #fff
+
         img
           display: block
           margin: 0 auto
