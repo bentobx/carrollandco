@@ -31,4 +31,4 @@ html
 
     block(name='footer')
       footer.footer
-        p &copy; 2016 Carroll &amp; Co.fdsfdsfsd
+        p &copy; 2016 Carroll &amp; Co.
