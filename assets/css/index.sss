@@ -12,8 +12,17 @@ $aromatic: RGB(141, 133, 65)
 $root-beer: RGB(163, 140, 128)
 
 body
-  background-color: rgb(242,	243, 245)
-  font-family: "mrs-eaves",sans-serif;
+  font-family: "mrs-eaves",sans-serif
+  padding-top: 5.25rem
+  padding-bottom: 3.25rem
+  border-top: solid 6px #000
+
+  main
+    padding-top: 3.125rem
+    border-left: 3.125rem solid #fff
+    border-right: 3.125rem solid #fff
+    background: #ebebe8
+
   &#products
     section
       &.product
@@ -21,7 +30,8 @@ body
         padding: 2rem
         float: none
         display: block
-        &#cherry-vanilla-bitters
+
+        /*&#cherry-vanilla-bitters
           background-color: color(#E2BDC4 lightness(95%))
 
         &#lemon-ginger-bitters
@@ -46,7 +56,7 @@ body
           background-color: #fff
 
         &#bloody-mix
-          background-color: #fff
+          background-color: #fff*/
 
         img
           display: block
@@ -61,7 +71,7 @@ body
   background-size: cover
 
 .wf-loading h1, .wf-loading p
-  visibility: hidden;
+  visibility: hidden
 
 h1,h2,h3
   font-family: $sans-font-family
@@ -81,7 +91,11 @@ h4
   letter-spacing: 0
 
 
-
+footer
+  padding-top: 3.125rem
+  border-left: 3.125rem solid #fff
+  border-right: 3.125rem solid #fff
+  text-align: center
 
 .number
   font-variant: small-caps
@@ -89,22 +103,26 @@ h4
 .jumbotron.feature
   background-color: #ECAA80
 
+.logo
+  display: block
+  text-align: center
+  margin: 0 auto
+  float: none
 a
   color: $primary
 .navbar
-  background-color: darken($primary,40%)
+  background-color: #fff
+
   border-radius: 0
   .navbar-brand
-    display: block;
-    float: none;
-    margin: 0 auto;
-    text-align: center;
+    display: block
+    float: none
+    margin: 0 auto
+    text-align: center
 
   .navbar-nav
-    line-height: 4vh
-    border-top: solid 6px #000
+    /*line-height: 4vh*/
     text-align: center
-    width: 50vw
     display: block
     margin: 1rem auto
 
@@ -112,13 +130,13 @@ a
       display: inline-block
       float: none
       font-family: $sans-font-family
-      font-size: calc(12px + 1vw)
+      font-size: calc(12px + .5vw)
       letter-spacing: .1rem
       text-transform: uppercase
 
       .nav-link
         display: inline-block
-        padding: 5px 10px
+        padding: .2rem .5rem
         color: #362f2d
         transition: background-color 200ms
         &:hover

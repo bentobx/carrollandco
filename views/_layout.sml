@@ -17,13 +17,18 @@ html
 
   body(id={{item.slug}} class="{{ item.classes ? item.classes.join(' ') : '' }}")
 
+    block(name='nav')
+
     main(role='main')
 
-      block(name='nav')
+      a.logo(href='/')
+        //- object(type='image/svg+xml', data='/img/logo-svg.svg')
+        img.img-fluid(src='/img/logo.png')
 
       block(name='content')
 
       block(name='sections')
 
-      block(name='footer')
-        p &copy; 2016 Carroll &amp; Co.
+    block(name='footer')
+      footer.footer
+        p &copy; 2016 Carroll &amp; Co.fdsfdsfsd

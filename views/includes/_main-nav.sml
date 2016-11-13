@@ -1,7 +1,4 @@
-nav.navbar.navbar-static-top
-  a.logo.navbar-brand(href='#')
-    //- object(type='image/svg+xml', data='/img/logo-svg.svg')
-    img.img-fluid(src='/img/logo.png')
+nav.navbar.navbar-fixed-top
   ul.nav.navbar-nav
     each(loop='path, key in paths.navbar')
       li.nav-item

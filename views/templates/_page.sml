@@ -3,8 +3,6 @@ extends(src='views/_layout.sml')
     block(name='nav')
       include(src='views/includes/_main-nav.sml')
 
-
-
     block(name='sections')
 
       if(condition='item.sections')
@@ -26,15 +24,9 @@ extends(src='views/_layout.sml')
             if(condition='item.slug == "products"')
               include(src='views/includes/_products.sml')
 
-
-          else
+          elseif(condition='section.fields.type == "standard"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
                 p {{section.fields.body}}
                 p {{section.fields.links}}
 
-
-    block(name='footer')
-      p &copy; 2016 Carroll &amp; Co.
-
-      
