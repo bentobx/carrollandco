@@ -77,6 +77,7 @@ module.exports = {
         {
           name: 'pages',
           id: 'page',
+          include: 10,
           // filters: { 'fields.slug[nin]': 'home' },
           template: {
             path: 'views/templates/_page.sml',

@@ -28,5 +28,8 @@ extends(src='views/_layout.sml')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
                 p {{section.fields.body}}
-                p {{section.fields.links}}
+                p {{ JSON.stringify(section.fields.links) }}
+                if(condition='section.fields.links')
+                  each(loop='link in section.fields.links')
+                    p {{ JSON.stringify(link) }}
 

@@ -16,14 +16,20 @@ $root-beer: RGB(163, 140, 128)
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px)
   main
-
     border-left: 3.25rem solid #F1F0EA
     border-right: 3.25rem solid #F1F0EA
+
+
+
+.logo
+  display: block
+  text-align: center
+  margin: 4rem auto
+  float: none
 
 body
   font-family: "mrs-eaves",sans-serif
   padding-bottom: 3.25rem
-
 
   @define-mixin icon $network, $color: blue
     .icon.is-$(network)
@@ -127,11 +133,7 @@ footer
 .jumbotron.feature
   background-color: #ECAA80
 
-.logo
-  display: block
-  text-align: center
-  margin: 0 auto
-  float: none
+
 a
   color: $primary
 
@@ -139,8 +141,8 @@ a
   background-image: none !important
   border: none
   /*font-family: $sans-font-family*/
-  height: 3.25rem;
-  line-height: 3.25rem;
+  height: 3.25rem
+  line-height: 3.25rem
   text-transform: uppercase
   letter-spacing: .2rem
   text-align: center
@@ -161,34 +163,22 @@ a
     left: 0
     background-color: #fff*/
     .navbar-nav
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      height: 100vh;
-      width: 100%;
-      overflow-y: auto;
-      text-align: center;
-      -webkit-transform: translate3d(0,-100%,0);
-      transform: translate3d(0,-100%,0);
-      will-change: transform;
-      -webkit-transition: -webkit-transform .5s cubic-bezier(.77,0,.175,1);
-      transition: -webkit-transform .5s cubic-bezier(.77,0,.175,1);
-      transition: transform .5s cubic-bezier(.77,0,.175,1);
-      transition: transform .5s cubic-bezier(.77,0,.175,1),-webkit-transform .5s cubic-bezier(.77,0,.175,1);
-      background-color: #fff;
-      background-image: url(logo.svg);
-      background-repeat: no-repeat;
-      background-position: 50%;
-      background-size: 9.125rem 13.75rem;
+
+      height: 100vh
+      width: 100%
+      overflow-y: auto
+      text-align: center
+
+      /*transform: translate3d(0,100%,0)*/
+      will-change: transform
+
+      transition: -webkit-transform .5s cubic-bezier(.77,0,.175,1)
+      transition: transform .5s cubic-bezier(.77,0,.175,1)
+      transition: transform .5s cubic-bezier(.77,0,.175,1),-webkit-transform .5s cubic-bezier(.77,0,.175,1)
+      background-image: url(logo.svg)
+      background-repeat: no-repeat
+      background-position: 50%
       background-image: url(/img/logo-trans.png)
-      /*background-position: 50% 75%
-      background-repeat: no-repeat*/
 
 
     .nav-item
