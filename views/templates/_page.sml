@@ -24,12 +24,53 @@ extends(src='views/_layout.sml')
             if(condition='item.slug == "products"')
               include(src='views/includes/_products.sml')
 
-          elseif(condition='section.fields.type == "standard"')
+          if(condition='section.fields.type == "text + image"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
-                p {{section.fields.body}}
-                p {{ JSON.stringify(section.fields.links) }}
-                if(condition='section.fields.links')
-                  each(loop='link in section.fields.links')
-                    p {{ JSON.stringify(link) }}
+                div.row
+                  div.col-md-4.offset-md-2
+                    p {{section.fields.body}}
+                  div.col-md-4
+                    img.right.img-fluid(src={{section.fields.image.fields.file.url}})
 
+          if(condition='section.fields.type == "text only"')
+            section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
+              div.container
+                div(md) {{section.fields.body}}
+
+          if(condition='section.fields.type == "3up"')
+            section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
+              div.container
+                h2 {{section.fields.body}}
+                div.card-group
+                  each(loop='card in section.fields.links')
+
+                    div.card
+                      div.card-block
+                        h3.card-title {{card.fields.title}}
+                      img.img-fluid(src="{{card.fields.bannerImage.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
+                      // content type template include here
+                      div.card-block
+
+                        if(condition='card.contentType.sys.id == "recipe"')
+                          div.recipe
+                            h4 Ingredients
+                            ul.list-unstyled.em-bullet
+                              each(loop='ingredient in card.fields.ingredients')
+                                li {{ ingredient}}
+                            a.card-link(href='/recipes/{{card.fields.slug}}') Recipe
+
+
+
+
+
+
+
+          if(condition='section.fields.type == "2up"')
+            section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
+              h3 2up
+              div.container
+                div.row
+                  each(loop='card in section.links')
+                    div.card.col-md-6
+                      h3 {{card.fields.title}}

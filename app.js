@@ -54,6 +54,7 @@ module.exports = {
       addDataTo: locals,
       accessToken: process.env.cda,
       spaceId: process.env.space,
+      includeLevel: 10,
       contentTypes: [
         {
           name: 'products',
@@ -77,7 +78,6 @@ module.exports = {
         {
           name: 'pages',
           id: 'page',
-          include: 10,
           // filters: { 'fields.slug[nin]': 'home' },
           template: {
             path: 'views/templates/_page.sml',

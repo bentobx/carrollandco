@@ -97,6 +97,7 @@ body
 
 .jumbotron
   background-size: cover
+  border-radius: 0
 
 .wf-loading h1, .wf-loading p
   visibility: hidden
@@ -227,3 +228,27 @@ a
 .fill-viewport
   height: 100vh
   padding-bottom: 70px
+
+.card
+  border-radius: 0
+  border-right: 0
+  border-left: 0
+  border-bottom: 0
+  border-top: solid 4px #000
+
+.card > *
+  padding-left: 0
+
+.recipe
+  .em-bullet
+    li
+      padding-left: 1rem
+      &:before
+        letter-spacing: .25px
+        font-weight: 400
+        font-style: normal
+        font-smoothing: antialiased
+        text-rendering: optimizeLegibility
+        content: '\2014'
+        position: absolute
+        left: 0
