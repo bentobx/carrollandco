@@ -1,5 +1,6 @@
 extends(src='views/_layout.sml')
 
+
     block(name='nav')
       include(src='views/includes/_main-nav.sml')
 
@@ -36,12 +37,13 @@ extends(src='views/_layout.sml')
           if(condition='section.fields.type == "text only"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
+                h3 {{section.fields.body}}
                 div(md) {{section.fields.body}}
 
           if(condition='section.fields.type == "3up"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
-                h2 {{section.fields.body}}
+                h3 {{{section.fields.body}}}
                 div.card-group
                   each(loop='card in section.fields.links')
 
@@ -59,10 +61,6 @@ extends(src='views/_layout.sml')
                               each(loop='ingredient in card.fields.ingredients')
                                 li {{ ingredient}}
                             a.card-link(href='/recipes/{{card.fields.slug}}') Recipe
-
-
-
-
 
 
 

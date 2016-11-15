@@ -1,22 +1,14 @@
-extends(src='views/_layout.sml')
+div.container
+  div.row
+    div.col-md-6
+      h1 {{ item.title }}
 
-  main(role='main')
+      h3 Ingredients
 
-    block(name='nav')
+      ul.list-unstyled
+        each(loop='ingredient in item.ingredients')
+          li {{ ingredient}}
 
-    block(name='content')
-      div.container
+      h3 Directions
 
-        h1 {{ item.title }}
-
-        h3 Ingredients
-
-        ul.list-unstyled
-          each(loop='ingredient in item.ingredients')
-            li {{ ingredient}}
-
-        h3 Directions
-
-        div {{{ item.directions }}}
-
-    block(name='footer')
+      div {{{ item.directions }}}

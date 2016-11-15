@@ -4,6 +4,7 @@ const Contentful       = require('spike-contentful')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
 const Records          = require('spike-records')
 const cssStandards     = require('spike-css-standards')
+
 const htmlStandards    = require('reshape-standard')
 // const pageId           = require('spike-page-id')
 const jsStandards      = require('babel-preset-latest')
@@ -23,10 +24,11 @@ module.exports = {
     html: '*(**/)*.sml',
     css: '*(**/)*.sss'
   },
-  ignore: ['**/.*', '_cache/**', '*.md', 'prepros.cfg', '*.log'],
+  ignore: ['**/.*', '*/**/_*.*','_cache/**', '*.md', 'prepros.cfg', '*.log'],
   reshape: (ctx) => {
     return htmlStandards({
-      locals
+      locals,
+      content: { md: md }
       // webpack: ctx,
       // locals: { pageId: pageId(ctx), locals }
     })
@@ -92,10 +94,10 @@ module.exports = {
         {
           name: 'recipes',
           id: 'recipe',
-          template: {
-            path: 'views/templates/_recipe.sml',
-            output: (i) => { return `/recipes/${i.slug}.html` }
-          },
+          // template: {
+          //   path: 'views/templates/_recipe.sml',
+          //   output: (i) => { return `/recipes/${i.slug}.html` }
+          // },
           transform: (recipe) => {
             recipe = recipe.fields
             if (recipe.directions)
