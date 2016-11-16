@@ -15,9 +15,11 @@ $root-beer: RGB(163, 140, 128)
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px)
+  body
+    padding-top: 2.25rem
   main
-    border-left: 3.25rem solid #F1F0EA
-    border-right: 3.25rem solid #F1F0EA
+    margin-left: 3.25rem
+    margin-right: 3.25rem
 
 
 
@@ -30,6 +32,8 @@ $root-beer: RGB(163, 140, 128)
 body
   font-family: "mrs-eaves",sans-serif
   padding-bottom: 3.25rem
+  background-color: #F1F0EA
+
 
   @define-mixin icon $network, $color: blue
     .icon.is-$(network)
@@ -122,8 +126,7 @@ h4
 
 footer
   padding-top: 3.25rem
-  border-left: 3.25rem solid #fff
-  border-right: 3.25rem solid #fff
+  
   text-align: center
 
 .number
@@ -176,10 +179,9 @@ a
       transition: -webkit-transform .5s cubic-bezier(.77,0,.175,1)
       transition: transform .5s cubic-bezier(.77,0,.175,1)
       transition: transform .5s cubic-bezier(.77,0,.175,1),-webkit-transform .5s cubic-bezier(.77,0,.175,1)
-      background-image: url(logo.svg)
       background-repeat: no-repeat
       background-position: 50%
-      background-image: url(/img/logo-trans.png)
+
 
 
     .nav-item

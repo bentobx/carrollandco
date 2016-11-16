@@ -22,10 +22,6 @@ html
 
     main(role='main')
 
-      a.logo(href='/')
-        //- object(type='image/svg+xml', data='/img/logo-svg.svg')
-        img.img-fluid(src='/img/logo.png')
-
       block(name='content')
 
       block(name='sections')
