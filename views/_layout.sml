@@ -20,15 +20,16 @@ html
 
     block(name='nav')
 
-    main(role='main')
+    div.container
+      main(role='main')
 
-      block(name='content')
+        block(name='content')
 
-      block(name='sections')
+        block(name='sections')
 
-    block(name='footer')
-      footer.footer
-        p &copy; 2016 Carroll &amp; Co.
+      block(name='footer')
+        footer.footer
+          p &copy; 2016 Carroll &amp; Co.
 
 
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous")

@@ -12,7 +12,7 @@ extends(src='views/_layout.sml')
             div.jumbotron.feature(style='background-image: url({{section.fields.image.fields.file.url}})')
               div.container
                 p {{section.fields.body}}
-                a.btn.btn-outline-primary.btn-lg(href='{{section.fields.promotedUrl}}', role='button') Learn more &raquo;
+                a.btn.btn-outline-secondary.btn-lg(href='{{section.fields.promotedUrl}}', role='button') Learn more &raquo;
 
           if(condition='section.fields.type == "spike-template"')
           // to use a sugarml template from the application (if you need to use a spike-contentful object)
@@ -37,13 +37,12 @@ extends(src='views/_layout.sml')
           if(condition='section.fields.type == "text only"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
-                h3 {{section.fields.body}}
-                div(md) {{section.fields.body}}
+                div.text {{section.fields.body}}
 
           if(condition='section.fields.type == "3up"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.container
-                h3 {{{section.fields.body}}}
+                h2 {{{section.fields.body}}}
                 div.card-group
                   each(loop='card in section.fields.links')
 
@@ -61,8 +60,6 @@ extends(src='views/_layout.sml')
                               each(loop='ingredient in card.fields.ingredients')
                                 li {{ ingredient}}
                             a.card-link(href='/recipes/{{card.fields.slug}}') Recipe
-
-
 
           if(condition='section.fields.type == "2up"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
