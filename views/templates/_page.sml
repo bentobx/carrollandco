@@ -58,7 +58,8 @@ extends(src='views/_layout.sml')
                             ul.list-unstyled.em-bullet
                               each(loop='ingredient in card.fields.ingredients')
                                 li {{ ingredient}}
-                            a.card-link(href='/recipes/{{card.fields.slug}}') Recipe
+                            h4 Directions
+                              p(md) {{card.fields.directions}}
 
           if(condition='section.fields.type == "2up"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
