@@ -3,13 +3,45 @@
 $primary: #2D232E
 $sans-font-family: futura-pt-condensed, sans-serif
 
-$cherry-vanilla: RGB(226, 189, 196)
+$cherry-vanilla: RGB(201, 151, 160)
 $lemon-ginger: RGB(216, 180, 87)
 $orange-cranberry: RGB(222, 142, 95)
 $cherry-masala-chai: RGB(207, 154, 143)
 $blueberry: RGB(169, 184, 192)
 $aromatic: RGB(141, 133, 65)
 $root-beer: RGB(163, 140, 128)
+
+
+
+
+
+
+
+@define-mixin product $product, $color: #000
+  .product#$(product)
+    .number
+      color: $color
+      /*@mixin-content*/
+    .description
+      p:first-child
+        border-bottom: solid 2px $color
+        border-top: solid 2px $color
+        padding: 1rem .4rem
+        color: $color
+    .details
+      p
+        color: $color
+
+
+@mixin product cherry-vanilla-bitters, $cherry-vanilla
+@mixin product lemon-ginger-bitters, $lemon-ginger
+@mixin product orange-cranberry-bitters, $orange-cranberry
+@mixin product cherry-masala-chai-bitters, $cherry-masala-chai
+@mixin product blueberry-bitters, $blueberry
+@mixin product aromatic-bitters, $aromatic
+@mixin product root-beer-bitters, $root-beer
+@mixin product tonic-syrup, #000
+@mixin product bloody-mix, #000
 
 
 
@@ -29,30 +61,17 @@ $root-beer: RGB(163, 140, 128)
   margin: 4rem auto
   float: none
 
+
+
+
+
 body
   font-family: "mrs-eaves",sans-serif
   padding-bottom: 3.25rem
   background-color: #F1F0EA
 
 
-  @define-mixin icon $network, $color: blue
-    .icon.is-$(network)
-      color: $color
-      @mixin-content
-
-    .icon.is-$(network):hover
-      color: white
-      background: $color
-
-  @mixin icon twitter
-    background: url(twt.png)
-
-  @mixin icon youtube, red
-    background: url(youtube.png)
-
-
   main
-    padding: 3.25rem
     background: #fff
 
   section
@@ -88,7 +107,7 @@ body
     .details
       margin: 0 0 1rem 0
       padding: 0 0 0 .4vw
-      border-top: solid 2px #444
+
       p
         margin: 0;
         padding: 0;
@@ -110,47 +129,21 @@ body
     section
       &.product
         margin: 0 auto 6rem auto
-
+        padding: 3.25rem
         float: none
         display: block
+        text-align: center
+        .title, .details
+          text-align: center
         .recipes
           span b
             margin: 0 0.4rem 0 0
         .description
           p:first-child
-            font-size: calc(24px + 2vw)
+            font-size: calc(20px + 1vw)
             line-height: normal
-        .suggested-uses
-          line-height: normal
-          font-size: calc(14px + 1vw)
 
 
-        /*&#cherry-vanilla-bitters
-          background-color: color(#E2BDC4 lightness(95%))
-
-        &#lemon-ginger-bitters
-          background-color: $lemon-ginger
-
-        &#orange-cranberry-bitters
-          background-color: $orange-cranberry
-
-        &#cherry-masala-chai-bitters
-          background-color: $cherry-masala-chai
-
-        &#blueberry-bitters
-          background-color: $blueberry
-
-        &#aromatic-bitters
-          background-color: $aromatic
-
-        &#root-beer-bitters
-          background-color: $root-beer
-
-        &#tonic-syrup
-          background-color: #fff
-
-        &#bloody-mix
-          background-color: #fff*/
 
         img
           display: block
@@ -158,6 +151,7 @@ body
         &:nth-child(even)
           .product-image
             float: right
+            
           .content
             float: left
 
@@ -202,7 +196,11 @@ footer
 .number
   font-family: $sans-font-family
   font-weight: 100
-  font-size: calc(14px + .5vw)
+  font-size: calc(14px + 1.5vw)
+  float: none
+  width: 50%
+  text-align: center
+  margin: 0 auto
 
 .jumbotron.feature
   background-color: #ECAA80
