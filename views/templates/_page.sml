@@ -47,8 +47,7 @@ extends(src='views/_layout.sml')
                   each(loop='card in section.fields.links')
 
                     div.card
-                      div.card-block
-                        h3.card-title {{card.fields.title}}
+                      h3.card-title {{card.fields.title}}
                       img.img-fluid(src="{{card.fields.bannerImage.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
                       // content type template include here
                       div.card-block

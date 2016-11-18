@@ -52,28 +52,77 @@ body
 
 
   main
-    padding-top: 3.25rem
+    padding: 3.25rem
     background: #fff
 
   section
+    padding-bottom: 1rem
+    padding-top: 1rem
     &.tagline
       .text
         text-align: center;
         font-size: 24px;
         margin: 1rem auto 3rem;
+    &.gallery
+      margin-top: 4rem
+
+      .card
+        border: none
+      .card-block
+        padding: 0
+      .card-title
+        position: absolute
+      .recipe
+        h4
+          text-transform: uppercase
+          font-size: calc(11px + .5vw)
+          margin-top: 1rem
+
+      h2
+        margin-bottom: 1rem
+        line-height: 3.25rem
+        border-top: solid 4px #000
+
 
   &#products
-    .details p
-      margin: 0;
-      padding: 0;
-      border-bottom: solid 1px #444;
-      line-height: 2rem;
+    .details
+      margin: 0 0 1rem 0
+      padding: 0 0 0 .4vw
+      border-top: solid 2px #444
+      p
+        margin: 0;
+        padding: 0;
+        display: inline-block
+        line-height: 2rem
+        &:after
+          content: '\2022'
+          padding: 0 .4rem
+        &:last-child:after
+          padding: 0
+          content: ''
+
+        .label
+          display: inline-block;
+          margin: 0px 0.5rem 0 0;
+          float: left;
+          font-weight: 900;
+
     section
       &.product
-        margin: 0 auto
-        padding: 2rem
+        margin: 0 auto 6rem auto
+
         float: none
         display: block
+        .recipes
+          span b
+            margin: 0 0.4rem 0 0
+        .description
+          p:first-child
+            font-size: calc(24px + 2vw)
+            line-height: normal
+        .suggested-uses
+          line-height: normal
+          font-size: calc(14px + 1vw)
 
 
         /*&#cherry-vanilla-bitters
@@ -127,7 +176,7 @@ h1,h2
   font-weight: 500
 
 
-h3,h4
+h3
   font-family: $sans-font-family
   font-style: normal
   font-weight: 500
@@ -151,9 +200,9 @@ footer
   text-align: center
 
 .number
-  font-variant: small-caps
   font-family: $sans-font-family
   font-weight: 100
+  font-size: calc(14px + .5vw)
 
 .jumbotron.feature
   background-color: #ECAA80
@@ -257,9 +306,8 @@ a
   border-right: 0
   border-left: 0
   border-bottom: 0
-  border-top: solid 4px #000
 
-.card > *
+.card > div
   padding-left: 0
 
 .recipe
