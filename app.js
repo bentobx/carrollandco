@@ -64,10 +64,10 @@ module.exports = {
           filters: {
             order: 'fields.sku'
           },
-          template: {
-            path: 'views/templates/_product.sml',
-            output: (i) => { return `/products/${i.slug}.html` }
-          },
+          // template: {
+          //   path: 'views/templates/_product.sml',
+          //   output: (i) => { return `/products/${i.slug}.html` }
+          // },
           transform: (product) => {
             product = product.fields
             if (product.description)
@@ -89,6 +89,22 @@ module.exports = {
               else
                 return `/${i.slug}/index.html`
             }
+          }
+        },
+        {
+          name: 'posts',
+          id: 'post',
+          template: {
+            path: 'views/templates/_post.sml',
+            output: (i) => {
+              return `/posts/${i.slug}/index.html`
+            }
+          },
+          transform: (post) => {
+            post = post.fields
+            post.body = md.render(post.body)
+            post.classes = ['post']
+            return post
           }
         },
         {

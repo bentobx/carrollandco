@@ -16,16 +16,19 @@ html
     block(name='stylesheets')
       link(rel='stylesheet' href='/css/index.css')
 
-  body(id={{item.slug}} class="{{ item.classes ? item.classes.join(' ') : '' }}")
+  block(name='body')
+    body(id={{item.slug}} class="{{ item.classes ? item.classes.join(' ') : '' }}")
 
     block(name='nav')
+      include(src='views/includes/_main-nav.sml')
 
     div.container
       main(role='main')
+        div.container
 
-        block(name='content')
+          block(name='content')
 
-        block(name='sections')
+          block(name='sections')
 
       block(name='footer')
         footer.footer
