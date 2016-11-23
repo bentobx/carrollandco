@@ -1,16 +1,16 @@
-.card-columns
-  each(loop='recipe, i of contentful.recipes')
-    section.recipe(id="{{recipe.slug}}")
-      div.card.col-md-4
-      .card-block
-          h3.card-title
-            a(href='/recipes/{{recipe.slug}}') {{recipe.title}}
-          p: strong Ingredients
+h1 Recipes
+p.tagline How to serve Carroll &amp; Co.
 
-          ul.list-unstyled.em-bullet
-            each(loop='ingredient in recipe.ingredients')
-              li {{ ingredient}}
+each(loop='recipe, i of contentful.recipes')
+  .recipe(id="{{recipe.slug}}")
+    h3: a(href='/recipes/{{recipe.slug}}') {{recipe.title}}
+    .row
+      .col-md-6.row-eq-height
+        h4 Ingredients
+        ul.list-unstyled.em-bullet
+          each(loop='ingredient in recipe.ingredients')
+            li {{ ingredient}}
 
-          p: strong Directions
-
-          div {{{ recipe.directions }}}
+      .col-md-6.row-eq-height
+        h4 Directions
+        div {{{ recipe.directions }}}

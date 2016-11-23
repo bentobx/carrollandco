@@ -30,4 +30,4 @@ each(loop='product, i of contentful.products')
         .recipes
           span: b Try it in…
           each(loop='recipe, i of product.recipes')
-            span: a(href='/recipes/{{recipe.fields.slug}}') {{recipe.fields.title}}
+            span: a(href='/recipes/#{{recipe.fields.slug}}') {{recipe.fields.title}}

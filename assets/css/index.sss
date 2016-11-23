@@ -90,12 +90,7 @@ body
 
       .card-title
         position: absolute
-      .recipe
-        h4
-          text-transform: uppercase
-          font-size: calc(11px + .3vw)
-          margin-top: 1rem
-          color: color(#DE8E5F lightness(30%))
+
 
       h2
         margin-bottom: 1rem
@@ -170,7 +165,10 @@ body
             order: 1
           .content
             order: 0
-
+  &#recipes
+    .recipe
+      margin: 0 0 4rem 0
+      border-top: solid 2px #000
 
 .jumbotron
   background-size: cover
@@ -340,3 +338,8 @@ a
         font-smoothing: antialiased
         text-rendering: optimizeLegibility
         content: '\2014'
+  h4
+    text-transform: uppercase
+    font-size: calc(11px + .3vw)
+    margin-top: 1rem
+    color: color(#DE8E5F lightness(30%))
