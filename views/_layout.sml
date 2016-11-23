@@ -24,7 +24,6 @@ html
 
     div.container
       main(role='main')
-        div.container
 
           block(name='content')
 
