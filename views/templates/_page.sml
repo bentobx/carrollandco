@@ -37,10 +37,10 @@ extends(src='views/_layout.sml')
           section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
 
             h2 {{{section.fields.body}}}
-            div.card-group
+            .row
               each(loop='card in section.fields.links')
 
-                div.card
+                div.card.col-md-4.row-eq-height
                   h3.card-title {{card.fields.title}}
                   img.img-fluid(src="{{card.fields.bannerImage.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
                   // content type template include here
