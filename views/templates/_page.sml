@@ -35,31 +35,40 @@ extends(src='views/_layout.sml')
 
           if(condition='section.fields.type == "3up"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
+                h2 {{{section.fields.body}}}
+                .row
+                  each(loop='card in section.fields.links')
 
-              h2 {{{section.fields.body}}}
-              .row
-                each(loop='card in section.fields.links')
+                    div.card.col-md-4.row-eq-height
+                      h3.card-title {{card.fields.title}}
+                      img.img-fluid(src="{{card.fields.bannerImage.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
+                      // content type template include here
+                      div.card-block
 
-                  div.card.col-md-4.row-eq-height
-                    h3.card-title {{card.fields.title}}
-                    img.img-fluid(src="{{card.fields.bannerImage.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
-                    // content type template include here
-                    div.card-block
-
-                      if(condition='card.contentType.sys.id == "recipe"')
-                        div.recipe
-                          h4 Ingredients
-                          ul.list-unstyled.em-bullet
-                            each(loop='ingredient in card.fields.ingredients')
-                              li {{ ingredient}}
-                          h4 Directions
-                            p(md) {{card.fields.directions}}
+                        if(condition='card.contentType.sys.id == "recipe"')
+                          div.recipe
+                            h4 Ingredients
+                            ul.list-unstyled.em-bullet
+                              each(loop='ingredient in card.fields.ingredients')
+                                li {{ ingredient}}
+                            h4 Directions
+                              p(md) {{card.fields.directions}}
 
           if(condition='section.fields.type == "2up"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
-              h3 2up
+              h2 2up
               div.container
                 div.row
                   each(loop='card in section.links')
                     div.card.col-md-6
                       h3 {{card.fields.title}}
+
+          if(condition='section.fields.type == "standard"')
+            section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
+              h2 {{section.fields.title}}
+                if(condition='section.fields.classes.includes("grid")')
+                  if(condition='section.fields.links')
+                    .row.s-center
+                      each(loop='link in section.fields.links')
+                        .col-md-4..col-xs-6.row-eq-height
+                          img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")

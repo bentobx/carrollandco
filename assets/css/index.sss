@@ -72,6 +72,10 @@ body
   section
     padding-bottom: 1rem
     padding-top: 1rem
+    h2
+      margin-bottom: 1rem
+      line-height: 3.25rem
+      border-top: solid 1px color(#DE8E5F lightness(90%))
     &.tagline
       .text
         text-align: center
@@ -79,6 +83,11 @@ body
         margin: 1rem auto
         font-style: italic
         color: $cherry-vanilla
+    &.grid
+      .row
+
+        img
+          padding: 1rem
     &.gallery
       margin-top: 4rem
 
@@ -92,10 +101,7 @@ body
         position: absolute
 
 
-      h2
-        margin-bottom: 1rem
-        line-height: 3.25rem
-        border-top: solid 1px color(#DE8E5F lightness(90%))
+
 
   &.post
     h1
@@ -344,3 +350,8 @@ a
     font-size: calc(11px + .3vw)
     margin-top: 1rem
     color: color(#DE8E5F lightness(30%))
+
+
+.s-center
+  align-self: center
+  align-items: center
