@@ -27,8 +27,9 @@ module.exports = {
   ignore: ['**/.*', '*/**/_*.*','_cache/**', '*.md', 'prepros.cfg', '*.log'],
   reshape: (ctx) => {
     return htmlStandards({
-      locals,
-      content: { md: md }
+      locals: Object.assign(
+        locals,
+        { md: md })
       // webpack: ctx,
       // locals: { pageId: pageId(ctx), locals }
     })

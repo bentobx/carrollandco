@@ -52,7 +52,7 @@ extends(src='views/_layout.sml')
                               each(loop='ingredient in card.fields.ingredients')
                                 li {{ ingredient}}
                             h4 Directions
-                              p(md) {{card.fields.directions}}
+                              p {{{ md.render(card.fields.directions) }}}
 
           if(condition='section.fields.type == "2up"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
@@ -66,9 +66,11 @@ extends(src='views/_layout.sml')
           if(condition='section.fields.type == "standard"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               h2 {{section.fields.title}}
-                if(condition='section.fields.classes.includes("grid")')
-                  if(condition='section.fields.links')
-                    .row.s-center
-                      each(loop='link in section.fields.links')
-                        .col-md-4..col-xs-6.row-eq-height
-                          img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")
+              if(condition='section.fields.body')
+                div.text {{{  md.render(section.fields.body) }}}
+              // if(condition='section.fields.classes.includes("grid")')
+              //   if(condition='section.fields.links')
+              //     .row.s-center
+              //       each(loop='link in section.fields.links')
+              //         .col-md-4.col-xs-6.row-eq-height
+              //           img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")
