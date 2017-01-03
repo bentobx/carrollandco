@@ -1,13 +1,12 @@
 # Carroll &amp; Co.
 
-
-
 ## Setup
 
 - make sure [node.js](http://nodejs.org) is at version >= `6`
 - `npm i spike -g`
 - clone this repo down and `cd` into the folder
 - run `npm install`
+- copy access token from Contentful into .env
 - run `spike watch` or `spike compile`
 
 ## Testing
