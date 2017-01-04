@@ -7,8 +7,8 @@ extends(src='views/_layout.sml')
           if(condition='section.fields.type == "jumbotron"')
             div.jumbotron.feature(style='background-image: url({{section.fields.image.fields.file.url}})')
               p {{section.fields.body}}
-
-              a.btn.btn-outline-secondary.btn-lg(href='/posts/{{section.fields.links[0].fields.slug}}', role='button') Learn more &raquo;
+              // TODO: If this is going to eventually point only to blog posts, update this URL
+              a.btn.btn-outline-secondary.btn-lg(href='/{{section.fields.links[0].fields.slug}}', role='button') Learn more &raquo;
 
           if(condition='section.fields.type == "spike-template"')
           // to use a sugarml template from the application (if you need to use a spike-contentful object)
@@ -68,9 +68,9 @@ extends(src='views/_layout.sml')
               h2 {{section.fields.title}}
               if(condition='section.fields.body')
                 div.text {{{  md.render(section.fields.body) }}}
-              // if(condition='section.fields.classes.includes("grid")')
-              //   if(condition='section.fields.links')
-              //     .row.s-center
-              //       each(loop='link in section.fields.links')
-              //         .col-md-4.col-xs-6.row-eq-height
-              //           img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")
+              if(condition='section.fields.classes.includes("grid")')
+                if(condition='section.fields.links')
+                  .row.s-center
+                    each(loop='link in section.fields.links')
+                      .col-md-4.col-xs-6.row-eq-height
+                        img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")
