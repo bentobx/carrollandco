@@ -29,7 +29,11 @@ html
 
         block(name='footer')
           footer.footer
-            p &copy; 2016 Carroll &amp; Co.
+            .social
+              a(href='https://www.instagram.com/carrollandco.to')
+                img.insta(src='/img/glyph-logo_May2016.png')
+            p &copy; 2017 Carroll &amp; Co.
+
 
 
       script(src='https://use.typekit.net/gyt3xeu.js')
