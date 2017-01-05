@@ -68,6 +68,22 @@ body
 
   main
     background: #fff
+  
+    h1
+      font-size: calc(18px + 0.8vw)
+      margin-bottom: 1rem
+      line-height: 3.25rem
+      border-bottom: solid 1px color(#DE8E5F lightness(90%))
+    .body
+
+      p
+        font-size: calc(14px + 0.5vw)
+        text-indent: 3rem
+        &:first-child
+          font-size: calc(14px + 1vw)
+          font-weight: 900
+          font-style: italic
+          text-indent: 0
 
   section
     padding-bottom: 1rem
@@ -103,7 +119,7 @@ body
 
 
 
-  &.post
+  /*&.post
     h1
       font-size: calc(18px + 0.8vw)
       margin-bottom: 1rem
@@ -118,7 +134,7 @@ body
           font-size: calc(14px + 1vw)
           font-weight: 900
           font-style: italic
-          text-indent: 0
+          text-indent: 0*/
 
   &#products
     .details
@@ -219,8 +235,10 @@ h4
 
 footer
   padding-top: 3.25rem
-
   text-align: center
+  .social img
+    width: 5vw
+    margin: 0 0 2rem 0
 
 .number
   font-family: $sans-font-family
