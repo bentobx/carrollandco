@@ -24,10 +24,12 @@ extends(src='views/_layout.sml')
           if(condition='section.fields.type == "text + image"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               div.row
-                div.col-md-4.offset-md-2
-                  p {{section.fields.body}}
-                div.col-md-4
-                  img.right.img-fluid(src={{section.fields.image.fields.file.url}})
+                div.col-md-7
+                  h2 {{section.fields.title}}
+                  if(condition='section.fields.body')
+                    div.text.body {{{  md.render(section.fields.body) }}}
+                div.col-md-5
+                  img.right.img-fluid(src="{{section.fields.image.fields.file.url + '?w=400'}}")
 
           if(condition='section.fields.type == "text only"')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
@@ -67,10 +69,11 @@ extends(src='views/_layout.sml')
             section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
               h2 {{section.fields.title}}
               if(condition='section.fields.body')
-                div.text {{{  md.render(section.fields.body) }}}
-              if(condition='section.fields.classes.includes("grid")')
-                if(condition='section.fields.links')
-                  .row.s-center
-                    each(loop='link in section.fields.links')
-                      .col-md-4.col-xs-6.row-eq-height
-                        img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")
+                div.text.body {{{  md.render(section.fields.body) }}}
+              if(condition='section.fields.classes')
+                if(condition='section.fields.classes.includes("grid")')
+                  if(condition='section.fields.links')
+                    .row.s-center
+                      each(loop='link in section.fields.links')
+                        .col-md-4.col-xs-6.row-eq-height
+                          img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")
