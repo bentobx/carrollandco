@@ -5,12 +5,19 @@ each(loop='recipe, i of contentful.recipes')
   .recipe(id="{{recipe.slug}}")
     h3: a(href='/recipes/{{recipe.slug}}') {{recipe.title}}
     .row
-      .col-md-6.row-eq-height
+      .col-xs.flex-xs-unordered.row-eq-height
         h4 Ingredients
         ul.list-unstyled.em-bullet
           each(loop='ingredient in recipe.ingredients')
             li {{ ingredient}}
 
-      .col-md-6.row-eq-height
+      .col-xs.flex-xs-unordered.row-eq-height
         h4 Directions
         div {{{ recipe.directions }}}
+      if(condition='recipe.bannerImage')
+
+        .col-xs.flex-xs-unordered.row-eq-height
+          // div {{ JSON.stringify(recipe.bannerImage.fields.file.url) }}
+          img.img-fluid(src="{{recipe.bannerImage.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
+
+          // img.img-fluid(src="{{recipe.bannerImage + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
