@@ -41,18 +41,27 @@ $root-beer: RGB(163, 140, 128)
 
 
 
-// Large devices (desktops, 992px and up)
+body
+  padding-top: 2.25rem
+  main
+    padding: 1.25rem
+
+  &#home
+    main
+      padding: 0
+    section
+      &:first-child
+        padding-top: 1.25rem
+
 @media (min-width: 992px)
   body
-    padding-top: 2.25rem
     &#home
       main
-        padding-top: 0
-        padding-bottom: 0
-  main
-    margin-left: 3.25rem
-    margin-right: 3.25rem
-    padding: 3.25rem
+        padding: 0
+    main
+      margin-left: 3.25rem
+      margin-right: 3.25rem
+      padding: 3.25rem
 
 .logo
   display: block
@@ -68,7 +77,30 @@ body
 
   main
     background: #fff
-  
+    .text
+      a, a:link, a:hover, a:visited
+        text-decoration: underline
+        color: currentColor
+
+    /*a
+      color: #000
+    a:hover, a:focus
+      color: #333
+    a:active
+      color: #666
+
+    a::after
+      width: 0
+      height: 0
+      border: 0.5em solid transparent
+      border-right: none
+      content: ''
+      display: inline-block
+
+    a::after, a:hover::after, a:focus::after, a:active::after
+      border-left-color: currentColor*/
+
+
     h1
       font-size: calc(18px + 0.8vw)
       margin-bottom: 1rem
@@ -88,14 +120,22 @@ body
   section
     padding-bottom: 1rem
     padding-top: 1rem
+
+    &:first-child
+      padding-top: 0
+      h2
+        border: none
     h2
       margin-bottom: 1rem
-      line-height: 3.25rem
+      /*line-height: 3.25rem*/
       border-top: solid 1px color(#DE8E5F lightness(90%))
+      padding: 1.25rem 1rem
+      /*padding-right: 1rem*/
     &.tagline
       .text
         text-align: center
-        font-size: calc(14px + 1.4rem)
+        font-size: calc(16px + 1rem)
+        padding: 0 2rem
         margin: 1rem auto
         font-style: italic
         color: $cherry-vanilla
@@ -182,11 +222,12 @@ body
         img
           display: block
           margin: 0 auto
-        &:nth-child(even)
-          .product-image
-            order: 1
-          .content
-            order: 0
+        @media (min-width: 1200px)
+          &:nth-child(even)
+            .product-image
+              order: 1
+            .content
+              order: 0
   &#recipes
     .recipe
       margin: 0 0 4rem 0
@@ -234,11 +275,16 @@ h4
 
 
 footer
-  padding-top: 3.25rem
   text-align: center
+  padding-top: 1rem
+  @media (min-width: 544px)
+    padding-top: 3.25rem
+    .social img
+      width: 5vw
+      margin: 0 0 2rem 0
   .social img
-    width: 5vw
-    margin: 0 0 2rem 0
+    width: 15vw
+    margin: 0 0 1rem 0
 
 .number
   font-family: $sans-font-family
