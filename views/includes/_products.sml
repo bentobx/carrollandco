@@ -1,14 +1,20 @@
+section.tagline
+  div.text What We Make
+
+
 each(loop='product, i of contentful.products')
+
   section.row.product(id={{product.slug}})
-    .product-image.col-md-4.row-eq-height
-      if(condition='product.image')
+    if(condition='product.image')
+      .product-image.content.col-md.flex-md-unordered.row-eq-height
         img.img-fluid(src="{{product.image[0].fields.file.url + '?h=600'}}")
 
-    .content.col-md-8.row-eq-height
+    .content.col-md.flex-xs-first.row-eq-height
       .title
         h3 {{product.name}}
         if(condition='product.number != undefined')
           div.number N<sup>o.</sup> {{product.number}}
+
       div.details
         p.volume
           span.label Volume

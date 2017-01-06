@@ -1,5 +1,5 @@
-h1 Recipes
-p.tagline How to serve Carroll &amp; Co.
+section.tagline
+  div.text How to serve Carroll &amp; Co.
 
 each(loop='recipe, i of contentful.recipes')
   .recipe(id="{{recipe.slug}}")
@@ -18,6 +18,6 @@ each(loop='recipe, i of contentful.recipes')
 
         .col-xs.flex-xs-unordered.row-eq-height
           // div {{ JSON.stringify(recipe.bannerImage.fields.file.url) }}
-          img.img-fluid(src="{{recipe.bannerImage.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
+          img.img-fluid(src="{{recipe.bannerImage.fields.file.url + '?h=200&w=400'}}")
 
           // img.img-fluid(src="{{recipe.bannerImage + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
