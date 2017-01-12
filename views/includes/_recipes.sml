@@ -14,10 +14,7 @@ each(loop='recipe, i of contentful.recipes')
       .col-xs.flex-xs-unordered.row-eq-height
         h4 Directions
         div {{{ recipe.directions }}}
-      if(condition='recipe.bannerImage')
+      if(condition='recipe.image')
 
         .col-xs.flex-xs-unordered.row-eq-height
-          // div {{ JSON.stringify(recipe.bannerImage.fields.file.url) }}
-          img.img-fluid(src="{{recipe.bannerImage.fields.file.url + '?h=200&w=400'}}")
-
-          // img.img-fluid(src="{{recipe.bannerImage + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
+          img.img-fluid(src="{{recipe.image.fields.file.url + '?h=200&w=400'}}")
