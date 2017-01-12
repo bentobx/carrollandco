@@ -32,6 +32,8 @@ html
             .social
               a(href='https://www.instagram.com/carrollandco.to')
                 img.insta(src='/img/glyph-logo_May2016.png')
+              a(href='https://twitter.com/betteryourbar')
+                img.twitter(src='/img/Twitter_Logo_Blue.png')
             p &copy; 2017 Carroll &amp; Co.
 
 
