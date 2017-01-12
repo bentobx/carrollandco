@@ -17,6 +17,15 @@ const colorFunction    = require('postcss-color-function')
 
 const locals           = {}
 
+formatProductText = (product) => {
+  product = product.fields
+  if (product.description)
+    product.description   = md.render(product.description)
+  if (product.suggestedUses)
+    product.suggestedUses = md.render(product.suggestedUses)
+  return product
+}
+
 module.exports = {
   cleanUrls: true,
   // devtool: 'source-map',
@@ -60,22 +69,36 @@ module.exports = {
       includeLevel: 10,
       contentTypes: [
         {
-          name: 'products',
+          name: 'mixers',
           id: '2PqfXUJwE8qSYKuM0U6w8M',
           filters: {
-            order: 'fields.sku'
+            order: 'fields.sku',
+            'fields.category[in]': 'Mixers'
           },
-          // template: {
-          //   path: 'views/templates/_product.sml',
-          //   output: (i) => { return `/products/${i.slug}.html` }
-          // },
-          transform: (product) => {
-            product = product.fields
-            if (product.description)
-              product.description   = md.render(product.description)
-            if (product.suggestedUses)
-              product.suggestedUses = md.render(product.suggestedUses)
-            return product
+          transform: function(product) {
+            return formatProductText(product)
+          }
+        },
+        {
+          name: 'syrups',
+          id: '2PqfXUJwE8qSYKuM0U6w8M',
+          filters: {
+            order: 'fields.sku',
+            'fields.category[in]': 'Specialty Syrups'
+          },
+          transform: function(product) {
+            return formatProductText(product)
+          }
+        },
+        {
+          name: 'bitters',
+          id: '2PqfXUJwE8qSYKuM0U6w8M',
+          filters: {
+            order: 'fields.sku',
+            'fields.category[in]': 'Bitters'
+          },
+          transform: function(product) {
+            return formatProductText(product)
           }
         },
         {
