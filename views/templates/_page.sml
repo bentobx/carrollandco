@@ -12,7 +12,7 @@ extends(src='views/_layout.sml')
           div.jumbotron.feature(style='background-image: url({{section.fields.image.fields.file.url}})')
             p {{section.fields.body}}
             // TODO: If this is going to eventually point only to blog posts, update this URL
-            a.btn.btn-outline-secondary.btn-lg(href='/{{section.fields.links[0].fields.slug}}', role='button') Learn more &raquo;
+            a.btn.btn-outline-primary.btn-lg(href='/{{section.fields.links[0].fields.slug}}', role='button') Learn more &raquo;
 
         if(condition='section.fields.type == "spike-template"')
         // to use a sugarml template from the application (if you need to use a spike-contentful object)

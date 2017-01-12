@@ -49,6 +49,7 @@ body
   &#home
     main
       padding: 0
+
     section
       &:first-child
         padding-top: 1.25rem
@@ -297,6 +298,10 @@ footer
 
 .jumbotron.feature
   background-color: #ECAA80
+  .btn
+    font-family: $sans-font-family
+    letter-spacing: .2rem
+    text-transform: uppercase
 
 
 a
@@ -421,3 +426,11 @@ a
   align-items: center
   justify-content: center
   text-align: center
+
+.btn-outline-primary
+  color: #fff
+  border-color: currentColor
+  &:hover
+    color: #000
+    background-color: #fff
+    border-color: #fff
