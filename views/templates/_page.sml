@@ -83,4 +83,4 @@ extends(src='views/_layout.sml')
                   .row.s-center
                     each(loop='link in section.fields.links')
                       .col-md-4.col-xs-6.row-eq-height
-                        img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=100'}}" alt="{{link.fields.logo.fields.title}}")
+                        img.img-fluid(src="{{link.fields.logo.fields.file.url + '?w=300&h=100'}}" alt="{{link.fields.logo.fields.title}}")
