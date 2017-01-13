@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 const path             = require('path')
 const Contentful       = require('spike-contentful')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
