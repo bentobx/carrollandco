@@ -12,6 +12,14 @@ $aromatic: RGB(141, 133, 65)
 $root-beer: RGB(163, 140, 128)
 
 
+@define-mixin tagline $padding, $margin
+  .text
+    text-align: center
+    font-size: calc(16px + 1rem)
+    margin: $margin
+    font-style: italic
+    color: $cherry-vanilla
+    padding: $padding
 
 @define-mixin product $product, $color: #000
   .product#$(product)
@@ -53,6 +61,9 @@ body
     section
       &:first-child
         padding-top: 1.25rem
+      &.tagline
+        .text
+          @mixin tagline 0 2rem, 1rem 0 1rem 0
 
 @media (min-width: 992px)
   body
@@ -133,13 +144,9 @@ body
       padding: 1.25rem 1rem
       /*padding-right: 1rem*/
     &.tagline
-      .text
-        text-align: center
-        font-size: calc(16px + 1rem)
-        padding: 0 2rem
-        margin: 1rem auto
-        font-style: italic
-        color: $cherry-vanilla
+      padding: 0
+      margin: 0
+      @mixin tagline 0 2rem, 0 auto 3rem
     &.grid
       .row
 
@@ -199,7 +206,11 @@ body
           margin: 0px 0.5rem 0 0
           float: left
           font-weight: 900
-
+    h4
+      text-transform: uppercase
+      letter-spacing: 1px
+      font-size: calc(13px + .3vw)
+      font-weight: 900
     section
       &.product
         margin: 0 auto 8rem auto
@@ -233,6 +244,9 @@ body
     .recipe
       margin: 0 0 4rem 0
       border-top: solid 2px #000
+      .featuring
+        p
+          font-size: calc(14px + 1vw)
 
 .jumbotron
   background-size: cover
