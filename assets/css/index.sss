@@ -13,13 +13,13 @@ $root-beer: RGB(163, 140, 128)
 
 
 @define-mixin tagline $padding, $margin
-  .text
-    text-align: center
-    font-size: calc(16px + 1rem)
-    margin: $margin
-    font-style: italic
-    color: $cherry-vanilla
-    padding: $padding
+
+  text-align: center
+  font-size: calc(16px + 1rem)
+  margin: $margin
+  font-style: italic
+  color: $cherry-vanilla
+  padding: $padding
 
 @define-mixin product $product, $color: #000
   .product#$(product)
@@ -60,10 +60,11 @@ body
 
     section
       &:first-child
-        padding-top: 1.25rem
+        padding-top: 1rem
       &.tagline
-        .text
-          @mixin tagline 0 2rem, 1rem 0 1rem 0
+        @mixin tagline 1rem 2rem, 0
+      .container
+        padding: 0 3.25rem
 
 @media (min-width: 992px)
   body
@@ -128,7 +129,9 @@ body
           font-weight: 900
           font-style: italic
           text-indent: 0
-
+  .jumbotron + section
+    &.gallery
+      margin: 0
   section
     padding-bottom: 1rem
     padding-top: 1rem
@@ -255,6 +258,7 @@ body
     color: #fff
     font-size: calc(14px + 1vw)
 
+
 .wf-loading h1, .wf-loading p
   visibility: hidden
 
@@ -293,13 +297,13 @@ footer
   text-align: center
   padding-top: 1rem
   @media (min-width: 544px)
-    padding-top: 3.25rem
-    .social img
-      width: 5vw
-      margin: 0 0 2rem 0
-  .social img
-    width: 15vw
-    margin: 0 0 1rem 0
+    padding: 3.25rem 0
+    .social span
+      font-size: calc(18px + 1vw)
+      margin: 0 .5vw 0
+  .social span
+    font-size: calc(18px + 1vw)
+    margin: 0 0 .5vw 0
 
 .number
   font-family: $sans-font-family
@@ -448,3 +452,34 @@ a
     color: #000
     background-color: #fff
     border-color: #fff
+
+
+@font-face
+  font-family: 'icomoon'
+  src:  url('/fonts/icomoon.eot?h1nac9')
+  src:  url('/fonts/icomoon.eot?h1nac9#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?h1nac9') format('truetype'),
+    url('/fonts/icomoon.woff?h1nac9') format('woff'),
+    url('/fonts/icomoon.svg?h1nac9#icomoon') format('svg')
+  font-weight: normal
+  font-style: normal
+
+
+[class^="icon-"], [class*=" icon-"]
+  font-family: 'icomoon' !important
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+
+.icon-instagram:before
+  content: "\ea92"
+
+.icon-twitter:before
+  content: "\ea96"
