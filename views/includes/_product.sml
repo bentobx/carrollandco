@@ -24,10 +24,11 @@ section.row.product(id={{product.slug}})
 
       div.suggested-uses
         h4 Suggested Uses
-        | {{{product.suggestedUses}}}
+          p {{{product.suggestedUses}}}
 
     if(condition='product.recipes')
-      .recipes
-        span: b Try it in…
-        each(loop='recipe, i of product.recipes')
-          span: a(href='/recipes/#{{recipe.fields.slug}}') {{recipe.fields.title}}
+      .recipes.text
+        h4 Try it in
+        ul.list-unstyled
+          each(loop='recipe, i of product.recipes')
+            li: a(href='/recipes/#{{recipe.fields.slug}}') {{recipe.fields.title}}

@@ -49,41 +49,17 @@ extends(src='views/_layout.sml')
 
                   div.card.col-md.flex-md-unordered.row-eq-height
 
-                    // div {{ JSON.stringify(card) }}
-
-                    if(condition='card.fields.title')
-                      h3.card-title {{card.fields.title}}
-
-                    if(condition='card.fields.name')
-                      h3.card-title {{card.fields.name}}
-
-                      // content type template include here
-
                     if(condition='card.contentType.sys.id == "2PqfXUJwE8qSYKuM0U6w8M"')
+                      h3.card-title {{card.fields.name}}
                       a(href='/products/#{{card.fields.slug}}')
                         img.img-fluid(src="{{card.fields.image[0].fields.file.url + '?&w=600&fit=fill&bg=rgb:000000'}}")
-                      // div {{ JSON.stringify(card) }}
 
                     if(condition='card.contentType.sys.id == "recipe"')
-                      img.img-fluid(src="{{card.fields.image.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
-                      div.card-block
+                      h3.card-title {{card.fields.title}}
+                      a(href='/recipes/#{{card.fields.slug}}')
+                        img.img-fluid(src="{{card.fields.image.fields.file.url + '?h=300&w=300&fit=fill&bg=rgb:000000'}}")
 
-                          div.recipe
-                            h4 Ingredients
-                            ul.list-unstyled.em-bullet
-                              each(loop='ingredient in card.fields.ingredients')
-                                li {{ ingredient}}
-                            h4 Directions
-                              p {{{ md.render(card.fields.directions) }}}
 
-        // if(condition='section.fields.type == "2up"')
-        //   section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
-        //     h2 2up
-        //     div.container
-        //       div.row
-        //         each(loop='card in section.links')
-        //           div.card.col-md-6
-        //             h3 {{card.fields.title}}
 
         if(condition='section.fields.type == "standard"')
           section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
