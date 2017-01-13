@@ -66,7 +66,7 @@ module.exports = {
       addDataTo: locals,
       accessToken: process.env.cda,
       spaceId: process.env.space,
-      includeLevel: 10,
+      includeLevel: 2,
       contentTypes: [
         {
           name: 'mixers',
@@ -134,6 +134,9 @@ module.exports = {
         {
           name: 'recipes',
           id: 'recipe',
+          // filters: {
+          //   order: 'fields.products[0].sys.id'
+          // },
           // template: {
           //   path: 'views/templates/_recipe.sml',
           //   output: (i) => { return `/recipes/${i.slug}.html` }
