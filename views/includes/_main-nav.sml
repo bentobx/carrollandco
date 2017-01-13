@@ -1,11 +1,9 @@
 nav.navbar.navbar-light.bg-faded
-  // mobile logo
-  a.navbar-brand.logo(href='/').hidden-lg-up
-    img.img-fluid(src='/img/logo-wordmark.png' width='200')
-  .menu-toggler.hidden-lg-up(data-toggle="collapse" data-target="#nav-responsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation") Menu
-  a.navbar-brand.logo(href='/').hidden-lg-down
-    img.img-fluid(src='/img/logo-wordmark.png' width='300')
-  div.collapse.navbar-toggleable-md#nav-responsive
+  a.navbar-brand.logo(href='/')
+    img.img-fluid(src='/img/logo-wordmark.png')
+  button.hidden-lg-up.menu-toggler.navbar-toggler(type="button" data-toggle="collapse" data-target="#nav-mobile" aria-controls="nav-mobile" aria-expanded="false" aria-label="Toggle navigation")
+    .navbar-toggler-icon Menu
+  div.collapse.navbar-collapse.navbar-toggleable-md#nav-mobile
     ul.nav.navbar-nav
       each(loop='path, key in paths.navbar')
         li.nav-item
