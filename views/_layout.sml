@@ -19,7 +19,7 @@ html
 
       block(name='nav')
         include(src='views/includes/_main-nav.sml')
-
+        // TODO: fix footer
       div.container
         main(role='main')
 

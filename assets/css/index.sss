@@ -1,6 +1,7 @@
 @import '_global.sss'
 
 $primary: #2D232E
+$primary-accent: #2D232E
 $sans-font-family: futura-pt-condensed, sans-serif
 
 $cherry-vanilla: RGB(201, 151, 160)
@@ -95,27 +96,41 @@ body
   main
     background: #fff
     .text
-      a, a:link, a:hover, a:visited
-        text-decoration: underline
-        color: currentColor
 
-    /*a
-      color: #000
-    a:hover, a:focus
-      color: #333
-    a:active
-      color: #666
+      a
+        color: #000
+        font-weight: 700
+        text-decoration: none
+        /*background-image: linear-gradient(color($primary-accent saturation(+ 25%))) 0%, $primary-accent 100%)
+        background: linear-gradient(135deg, $primary-accent, $primary-accent)
+        background-repeat: repeat-x
+        background-size: 2px 2px
+        background-position: 0 95%
+        @media (-webkit-min-device-pixel-ratio: 1.75),
+        (min-resolution: 168dpi)
+          background-image: linear-gradient(color($primary-accent saturation(+ 25%))) 0%, $primary-accent 100%)
+          background-position: 0 93%
 
-    a::after
-      width: 0
-      height: 0
-      border: 0.5em solid transparent
-      border-right: none
-      content: ''
-      display: inline-block
+        text-shadow: 3px 0 @bg, 2px 0 @bg, 1px 0 @bg, -1px 0 @bg, -2px 0 @bg, -3px 0 @bg
+        &:hover
+          color: color($primary-accent blackness(30%))
+          background-image: linear-gradient(to bottom, color($primary-accent blackness(30%))) 0%, color($primary-accent blackness(30%)) 100%)
 
-    a::after, a:hover::after, a:focus::after, a:active::after
-      border-left-color: currentColor*/
+        &,
+        > *
+          &::selection
+            background-color: color($primary-accent lightness(65%))
+            color: #000
+            text-shadow: none
+
+          &::-moz-selection
+            background-color: color($primary-accent lightness(65%))
+            color: #000
+            text-shadow: none
+*/
+
+
+
 
 
     h1
