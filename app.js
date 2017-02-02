@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 const path             = require('path')
 const Contentful       = require('spike-contentful')
 const HardSourcePlugin = require('hard-source-webpack-plugin')
@@ -68,6 +68,11 @@ module.exports = {
       spaceId: process.env.space,
       includeLevel: 2,
       contentTypes: [
+        {
+          name: 'companies',
+          id: 'company',
+          json: 'companies.json'
+        },
         {
           name: 'mixers',
           id: '2PqfXUJwE8qSYKuM0U6w8M',
