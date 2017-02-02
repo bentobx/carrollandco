@@ -40,6 +40,18 @@ extends(src='views/_layout.sml')
           section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
             div.text {{section.fields.body}}
 
+        if(condition='section.fields.type == "quote"')
+          section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
+            div.container
+              each(loop='link in section.fields.links')
+                blockquote {{{  md.render(link.fields.quoteText) }}}
+                cite {{ link.fields.attributionName }}, {{ link.fields.attributionTitle }}, {{ link.fields.attributionCompanyText }}
+                // I'd rather use a link to a company object here, but i'm hitting max call size in app.js
+                // each(loop='company in link.fields.attributionCompany')
+                  // div {{ company.name }}
+                  // div {{ JSON.stringify(company) }}
+
+
         if(condition='section.fields.type == "3up"')
           section(class="{{ section.fields.classes ? section.fields.classes.join(' ') : '' }}")
             h2 {{{section.fields.body}}}
