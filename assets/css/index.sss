@@ -100,37 +100,6 @@ body
       a
         color: #000
         font-weight: 700
-        text-decoration: none
-        /*background-image: linear-gradient(color($primary-accent saturation(+ 25%))) 0%, $primary-accent 100%)
-        background: linear-gradient(135deg, $primary-accent, $primary-accent)
-        background-repeat: repeat-x
-        background-size: 2px 2px
-        background-position: 0 95%
-        @media (-webkit-min-device-pixel-ratio: 1.75),
-        (min-resolution: 168dpi)
-          background-image: linear-gradient(color($primary-accent saturation(+ 25%))) 0%, $primary-accent 100%)
-          background-position: 0 93%
-
-        text-shadow: 3px 0 @bg, 2px 0 @bg, 1px 0 @bg, -1px 0 @bg, -2px 0 @bg, -3px 0 @bg
-        &:hover
-          color: color($primary-accent blackness(30%))
-          background-image: linear-gradient(to bottom, color($primary-accent blackness(30%))) 0%, color($primary-accent blackness(30%)) 100%)
-
-        &,
-        > *
-          &::selection
-            background-color: color($primary-accent lightness(65%))
-            color: #000
-            text-shadow: none
-
-          &::-moz-selection
-            background-color: color($primary-accent lightness(65%))
-            color: #000
-            text-shadow: none
-*/
-
-
-
 
 
     h1
@@ -165,6 +134,30 @@ body
       border-top: solid 1px color(#DE8E5F lightness(90%))
       padding: 1.25rem 1rem
       /*padding-right: 1rem*/
+
+    &.quote
+      /*padding: 3rem 0*/
+      blockquote
+        font-size: calc(18px + 1vw)
+        border-bottom: solid 2px #000
+        border-top: solid 2px #000
+        padding: 2rem .4rem
+        line-height: normal
+        font-style: italic
+      cite
+        font-size: calc(16px + 1vw)
+        font-weight: 900
+        text-align: right
+        display: block
+        &:before
+          letter-spacing: 7px
+          font-weight: 400
+          font-style: normal
+          font-smoothing: antialiased
+          text-rendering: optimizeLegibility
+          content: '\2014'
+
+
     &.tagline
       padding: 0
       margin: 0
@@ -440,6 +433,7 @@ a
   border-right: 0
   border-left: 0
   border-bottom: 0
+
 
 
 .recipe
