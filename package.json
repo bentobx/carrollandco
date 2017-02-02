@@ -23,7 +23,7 @@
     "posthtml-exp": "^0.9.0",
     "reshape-standard": "^0.4.0",
     "source-loader": "^0.2.0",
-    "spike": "^0.12.2",
+    "spike": "^0.14.2",
     "spike-collections": "^0.2.0",
     "spike-contentful": "^0.4.0",
     "spike-css-standards": "^0.1.1",
